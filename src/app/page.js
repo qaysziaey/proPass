@@ -1,6 +1,5 @@
 'use client';
-import { React, useState, useEffect } from 'react';
-import Link from 'next/link';
+import { React } from 'react';
 import { Button, Typography } from '@material-tailwind/react';
 
 export default function Home() {
