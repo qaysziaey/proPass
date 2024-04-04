@@ -75,14 +75,11 @@
     @apply bg-background text-foreground;
   }
 }
-/* body{
-  background-image: url('../../public/dots.svg');
-} */
-.landing-section, .login-container{
-  background-image: url('../../public/gradient-2-bg.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
+body{
+  /* background-image: url('../../public/boxes.svg'); */
+  background-color: rgb(13, 13, 13);
 }
+
 
 .nav-blur-bg{
   background: rgba(0,0,0,0.65);

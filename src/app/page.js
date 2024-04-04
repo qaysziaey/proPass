@@ -1,10 +1,13 @@
 'use client';
 import { React } from 'react';
 import { Button, Typography } from '@material-tailwind/react';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
+
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <header className='bg-black p-8 landing-section'>
+    <header className='landing-section bg-[url(/gradient-2-bg.svg)] h-screen bg-cover'>
       <div className='grid min-h-[82vh] w-full lg:h-[54rem] md:h-[34rem] place-items-center bg-center bg-contain bg-no-repeat'>
         <div className='container mx-auto px-4 text-center'>
           <Typography className='inline-flex text-xs rounded-lg border-[1.5px] border-blue-gray-50 bg-white py-1 lg:px-4 px-1 font-medium text-primary'>
@@ -30,14 +33,25 @@ export default function Home() {
             color. For standing out.
           </Typography>
           <div className='mt-8 grid  place-items-center md:justify-center'>
-            <div className='flex w-full flex-col gap-4 md:flex-row'>
-              <Button className='px-4'>
-                <div className=' bg-gray'></div>
-                get started
+            <div className='flex w-full flex-col gap-2 md:flex-row'>
+              <Button
+                size='sm'
+                variant='gradient'
+                className='rounded-full flex gap-2 align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
+                <Typography variant='h6' className='font-bold'>
+                  Get Started
+                </Typography>
+                <ChevronRightIcon className='h-4 w-4' />
               </Button>
-              <Button className='px-4'>
-                <div className='bg-gray'></div>
-                Learn more
+              <Button
+                size='sm'
+                variant='outlined'
+                className='rounded-full flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
+                <Link href='/login'>
+                  <Typography variant='h6' className='font-bold'>
+                    Learn more
+                  </Typography>
+                </Link>
               </Button>
             </div>
           </div>
