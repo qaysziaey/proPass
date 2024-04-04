@@ -95,7 +95,7 @@ export default function RootLayout({ children }) {
                 <Link href='/login'>
                   <Button
                     size='sm'
-                    variant='gray'
+                    variant='filled'
                     className='rounded-full px-8 py-1  flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
                     <Typography variant='h6' className='font-bold'>
                       Log in
@@ -105,7 +105,7 @@ export default function RootLayout({ children }) {
                 <Link href='/signup'>
                   <Button
                     size='sm'
-                    variant='gray'
+                    variant='filled'
                     className='rounded-full px-8 py-1 flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
                     <Link href='/login'>
                       <Typography variant='h6' className='font-bold'>
@@ -117,10 +117,10 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             <IconButton
-              variant='text'
+              variant='filled'
               color='white'
               onClick={handleOpen}
-              className='ml-auto inline-block lg:hidden'>
+              className='ml-auto inline-block lg:hidden bg-gray-900 text-white'>
               {open ? <HamBurger /> : <XMark />}
             </IconButton>
           </div>
