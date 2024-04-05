@@ -39,16 +39,19 @@ export default function NavBar({ children }) {
 
   const navItems = [
     {
+      id: 1,
       name: 'Credentials',
       href: '/credentials',
       icon: <QrCodeIcon className='h-6 w-6 text-gray-600' />,
     },
     {
+      id: 2,
       name: 'Users',
       href: '/users',
       icon: <UserIcon className='h-6 w-6 text-gray-600' />,
     },
     {
+      id: 3,
       name: 'Groups',
       href: '/groups',
       icon: <UserGroupIcon className='h-6 w-6 text-gray-600' />,

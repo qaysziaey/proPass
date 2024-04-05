@@ -11,7 +11,7 @@ import { Twitter_Fab as Twitter } from 'iconview/svgs/Twitter_Fab';
 import CredentialSingleAccount from '../../components/CredentialSingleAccount';
 
 export default function Credentials() {
-  const [copyNotification, setCopyNotification] = React.useState('');
+  const [copyNotification, setCopyNotification] = React.useState(true);
   const CopyPasswordBtn = () => {
     setCopyNotification(
       <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
@@ -87,7 +87,7 @@ export default function Credentials() {
                 <Button
                   size='sm'
                   color='blue'
-                  variant='white'
+                  variant='filled'
                   className='rounded-[12px]  flex gap-2 align-middle items-center transition-all normal-case'>
                   <PlusIcon className='h-5 w-5' />
                   <Typography variant='h6' className='font-bold'>

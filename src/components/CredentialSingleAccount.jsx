@@ -28,7 +28,7 @@ export default function CredentialSingleAccount({
         <Button
           onClick={copyPasswordBtn}
           size='sm'
-          variant='text'
+          variant='filled'
           className='rounded-full p-1 bg-[#2f3542] bg-transparent hover:bg-transparent'>
           <Square2StackIcon className='h-6 w-6 text-gray-500 hover:text-cyan-300 hover:scale-110 transition-all' />
         </Button>
