@@ -1,7 +1,7 @@
 'use client';
+import React from 'react';
 import Link from 'next/link';
 import { Card, Input, Button, Typography } from '@material-tailwind/react';
-import React from 'react';
 
 export default function Login() {
   const pointerEnter = () => {

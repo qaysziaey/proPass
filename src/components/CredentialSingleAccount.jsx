@@ -1,5 +1,6 @@
 'use client';
-
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Button, Typography } from '@material-tailwind/react';
 import { Square2StackIcon } from '@heroicons/react/24/outline';
 
@@ -36,3 +37,9 @@ export default function CredentialSingleAccount({
     </div>
   );
 }
+CredentialSingleAccount.propTypes = {
+  accountTitle: PropTypes.string.isRequired,
+  accountDescription: PropTypes.string.isRequired,
+  copyPasswordBtn: PropTypes.func.isRequired,
+  accountIcon: PropTypes.node.isRequired,
+};

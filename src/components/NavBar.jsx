@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, React } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -97,13 +97,11 @@ export default function NavBar({ children }) {
             <Link href='/signup'>
               <Button
                 size='sm'
-                variant='filled'
+                variant='outlined'
                 className='rounded-full py-1 flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
-                <Link href='/login'>
-                  <Typography variant='h6' className='font-bold'>
-                    Sign up
-                  </Typography>
-                </Link>
+                <Typography variant='h6' className='font-bold'>
+                  Sign up
+                </Typography>
               </Button>
             </Link>
           </div>
@@ -136,20 +134,24 @@ export default function NavBar({ children }) {
             ))}
           </ul>
           <div className='mt-6 mb-4 flex items-center gap-4 flex flex-col'>
-            <Button
-              size='sm'
-              className='w-full rounded-full bg-gray-200 text-black normal-case hover:bg-gray-300'>
-              <Typography variant='h6' className=''>
-                Log in
-              </Typography>
-            </Button>
-            <Button
-              size='sm'
-              className='w-full rounded-full bg-gray-200 text-black normal-case hover:bg-gray-300'>
-              <Typography variant='h6' className=''>
-                Sign up
-              </Typography>
-            </Button>
+            <Link href='/login'>
+              <Button
+                size='sm'
+                className='w-full rounded-full bg-gray-200 text-black normal-case hover:bg-gray-300'>
+                <Typography variant='h6' className=''>
+                  Log in
+                </Typography>
+              </Button>
+            </Link>
+            <Link href='/signup'>
+              <Button
+                size='sm'
+                className='w-full rounded-full bg-gray-200 text-black normal-case hover:bg-gray-300'>
+                <Typography variant='h6' className=''>
+                  Sign up
+                </Typography>
+              </Button>
+            </Link>
           </div>
         </div>
       </Collapse>
