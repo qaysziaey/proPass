@@ -22,7 +22,7 @@ import { Bars_Fas as HamBurger } from 'iconview/svgs/Bars_Fas';
 
 import { Xmark_Fas as XMark } from 'iconview/svgs/Xmark_Fas';
 
-export default function NavBar({ children }) {
+export default function NavBar() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
 
@@ -62,7 +62,7 @@ export default function NavBar({ children }) {
     <Navbar
       shadow={false}
       fullWidth
-      className='border-0 bg-black to-black border-b border-gray-900 px-0 fixed inset-x-0 top-0 z-50 backdrop-blur-lg'>
+      className='border-0 bg-black border-b border-gray-900 px-0 fixed top-0 z-50 backdrop-blur-sm bg-black/30'>
       <div className='container mx-auto flex items-center justify-between'>
         <Image src={appLogoWhite} alt='ProPass logo' width={100} height={10} />
         <ul className='hidden items-center gap-6 lg:flex'>
@@ -87,8 +87,9 @@ export default function NavBar({ children }) {
             <Link href='/login'>
               <Button
                 size='sm'
-                variant='outlined'
-                className='rounded-full py-1 flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
+                color='white'
+                variant='filled'
+                className='rounded-lg py-1 flex align-middle place-items-center transition-transform normal-case '>
                 <Typography variant='h6' className='font-bold'>
                   Log in
                 </Typography>
@@ -98,7 +99,7 @@ export default function NavBar({ children }) {
               <Button
                 size='sm'
                 variant='outlined'
-                className='rounded-full py-1 flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
+                className='rounded-lg py-1 flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
                 <Typography variant='h6' className='font-bold'>
                   Sign up
                 </Typography>
@@ -115,10 +116,12 @@ export default function NavBar({ children }) {
         </IconButton>
       </div>
       <Collapse open={open}>
-        <div className='container mx-auto mt-3 border-t border-gray-900 px-7 pt-4'>
-          <ul className='flex flex-col gap-4'>
+        <div className='container mx-auto mt-3 border-t border-gray-900 px-0 py-0'>
+          <ul className='flex flex-col gap-0'>
             {navItems.map((item) => (
-              <li className='flex flex-row items-center gap-2' key={item.id}>
+              <li
+                className='flex flex-row items-center gap-2 py-5 pl-6 transition-all border-b-[1.5px] border-gray-900/0 hover:border-b-[1.5px] hover:border-gray-900/70 '
+                key={item.id}>
                 <Link
                   href={item.href}
                   className='flex flex-row items-center gap-2'>
@@ -137,7 +140,7 @@ export default function NavBar({ children }) {
             <Link href='/login'>
               <Button
                 size='sm'
-                className='w-full rounded-full bg-gray-200 text-black normal-case hover:bg-gray-300'>
+                className='w-full rounded-lg bg-gray-200 text-black normal-case hover:bg-gray-300'>
                 <Typography variant='h6' className=''>
                   Log in
                 </Typography>
@@ -146,7 +149,7 @@ export default function NavBar({ children }) {
             <Link href='/signup'>
               <Button
                 size='sm'
-                className='w-full rounded-full bg-gray-200 text-black normal-case hover:bg-gray-300'>
+                className='w-full rounded-lg bg-gray-200 text-black normal-case hover:bg-gray-300'>
                 <Typography variant='h6' className=''>
                   Sign up
                 </Typography>

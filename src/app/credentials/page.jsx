@@ -69,11 +69,11 @@ export default function Credentials() {
   ];
   return (
     <div className='flex p-0 text-white h-screen flex-col'>
-      <div className='w-full border-b border-[#1e272e] flex flex-col pt-40 pb-10 bg-gray-900 bg-gradient-to-b from-black to-gray]'>
+      <div className='w-full border-b border-[#1e272e] flex flex-col pt-[100px] pb-10 bg-gray-900 bg-gradient-to-b from-black to-gray]'>
         <div className='relative flex justify-center items-center'>
           {copyNotification}
         </div>
-        <div className='container mx-auto border'>
+        <div className='container mx-auto'>
           <Typography variant='h3' className='font-bold'>
             Credentials
           </Typography>
@@ -86,12 +86,12 @@ export default function Credentials() {
               <Link href='#'>
                 <Button
                   size='sm'
-                  color='blue'
+                  color='white'
                   variant='filled'
-                  className='rounded-[12px]  flex gap-2 align-middle items-center transition-all normal-case'>
+                  className='rounded-lg  flex gap-2 align-middle items-center transition-all normal-case'>
                   <PlusIcon className='h-5 w-5' />
-                  <Typography variant='h6' className='font-bold'>
-                    Create
+                  <Typography variant='paragraph' className='font-bold'>
+                    Add New...
                   </Typography>
                 </Button>
               </Link>
