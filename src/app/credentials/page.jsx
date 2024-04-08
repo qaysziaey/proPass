@@ -1,10 +1,11 @@
 'use client';
-import React from 'react';
+import { React, useState } from 'react';
 import Link from 'next/link';
 import {
   PlusIcon,
   CheckCircleIcon,
   SparklesIcon,
+  Square2StackIcon,
 } from '@heroicons/react/24/outline';
 
 import {
@@ -13,6 +14,9 @@ import {
   Alert,
   Input,
   Textarea,
+  Collapse,
+  Card,
+  CardBody,
 } from '@material-tailwind/react';
 
 import { Google_Fab as Google } from 'iconview/svgs/Google_Fab';
@@ -23,7 +27,10 @@ import { Twitter_Fab as Twitter } from 'iconview/svgs/Twitter_Fab';
 import CredentialSingleAccount from '../../components/CredentialSingleAccount';
 
 export default function Credentials() {
-  const [copyNotification, setCopyNotification] = React.useState(true);
+  const [copyNotification, setCopyNotification] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  const toggleOpen = () => setOpen((cur) => !cur);
   const CopyPasswordBtn = () => {
     setCopyNotification(
       <div className='absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/5'>
@@ -99,121 +106,139 @@ export default function Credentials() {
               {' '}
               <Link href='#'>
                 <Button
-                  size='sm'
+                  onClick={toggleOpen}
+                  size='md'
                   color='white'
                   variant='filled'
                   className='rounded-lg flex gap-2 align-middle items-center transition-all normal-case'>
                   <PlusIcon className='h-4 w-4' />
-                  Add New...
+                  <Typography variant='h6' className='tracking-wide text-sm'>
+                    Add New...
+                  </Typography>
                 </Button>
               </Link>
             </div>
           </div>
-          <form>
-            <div className='flex flex-row gap-6 w-full  justify-center lg:px-60 flex-wrap'>
-              <div className='mb-1  flex flex-col gap-6 flex-auto'>
-                <Typography
-                  variant='h6'
-                  placeholder='Enter text'
-                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
-                  Account name
-                </Typography>
-                <Input
-                  size='lg'
-                  placeholder='name@mail.com'
-                  className='flex-grow !border-t-blue-gray-200 focus:!border-gray-900 border-[1.5px] border-gray-900'
-                  crossOrigin={undefined}
-                />
-                <Typography
-                  variant='h6'
-                  placeholder='Enter text'
-                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
-                  Email
-                </Typography>
-                <Input
-                  size='lg'
-                  placeholder='name@mail.com'
-                  className=' !border-t-blue-gray-200 focus:!border-t-gray-900'
-                  crossOrigin={undefined}
-                />
-                <Typography
-                  variant='h6'
-                  placeholder='Enter text'
-                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
-                  Description
-                </Typography>
-                <Textarea
-                  variant='outlined'
-                  placeholder='Static'
-                  className=' !border-t-blue-gray-200 focus:!border-t-gray-900 h-32'
-                />
-              </div>
-              <div className='mb-1 flex flex-col gap-6 flex-grow'>
-                <Typography
-                  variant='h6'
-                  placeholder='Enter text'
-                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
-                  Password
-                </Typography>
-                <Input
-                  type='password'
-                  size='lg'
-                  placeholder='********'
-                  className='flex-grow !border-t-blue-gray-200 focus:!border-t-gray-900'
-                  crossOrigin={undefined}
-                />
-                <Typography
-                  variant='h6'
-                  placeholder='Enter text'
-                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
-                  Generated Password
-                </Typography>
-                <Input
-                  label='xd@!.sPass*ff12deFBsx!.sPass*ff12deFBs'
-                  type='text'
-                  size='lg'
-                  color='gray'
-                  placeholder='xd@!.sPass*ff12deFBsx!.sPass*ff12deFBs'
-                  className='flex-grow !border-t-blue-gray-200 focus:!border-t-gray-900 bg-gray-900 truncate'
-                  crossOrigin={undefined}
-                  disabled
-                />
-                <Button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log('Password has been generated.');
-                  }}
-                  variant='filled'
-                  color='gray'
-                  className='group mt-9 small w-full flex gap-2 bg-gray-900 border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-500 hover:text-gray-300 transition-all'
-                  placeholder=''>
-                  <SparklesIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
-                  <Typography
-                    variant='h6'
-                    placeholder='Enter text'
-                    className='text-sm normal-case tracking-wide'>
-                    Generate
-                  </Typography>
-                </Button>
-                <Button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log('Password has been generated.');
-                  }}
-                  variant='filled'
-                  color='white'
-                  className=' w-full border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-700 hover:text-gray-900 transition-all'
-                  placeholder=''>
-                  <Typography
-                    variant='h6'
-                    placeholder='Enter text'
-                    className='text-sm normal-case tracking-wide'>
-                    Save
-                  </Typography>
-                </Button>
-              </div>
-            </div>
-          </form>
+
+          <Collapse open={open} className='w-full'>
+            <Card className='my-4 w-full flex py-4 flex-col gap-4 bg-gray-100 transition-all'>
+              <CardBody>
+                <form>
+                  <div className='flex flex-row gap-6 w-full  justify-center lg:px-60 flex-wrap'>
+                    <div className='mb-1  flex flex-col gap-6 flex-auto'>
+                      <Typography
+                        variant='h6'
+                        placeholder='Enter text'
+                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
+                        Account name
+                      </Typography>
+                      <Input
+                        size='lg'
+                        placeholder='name@mail.com'
+                        className='flex-grow border border-blue-500 text-gray-800'
+                        crossOrigin={undefined}
+                      />
+                      <Typography
+                        variant='h6'
+                        placeholder='Enter text'
+                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
+                        Email
+                      </Typography>
+                      <Input
+                        size='lg'
+                        placeholder='name@mail.com'
+                        className=' !border-t-blue-gray-200 focus:!border-t-gray-900'
+                        crossOrigin={undefined}
+                      />
+                      <Typography
+                        variant='h6'
+                        placeholder='Enter text'
+                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
+                        Description
+                      </Typography>
+                      <Textarea
+                        variant='outlined'
+                        placeholder='Static'
+                        className=' !border-t-blue-gray-200 focus:!border-t-gray-900 h-32'
+                      />
+                    </div>
+                    <div className='mb-1 flex flex-col gap-6 flex-grow'>
+                      <Typography
+                        variant='h6'
+                        placeholder='Enter text'
+                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
+                        Password
+                      </Typography>
+                      <Input
+                        type='password'
+                        size='lg'
+                        placeholder='********'
+                        className='flex-grow !border-t-blue-gray-200 focus:!border-t-gray-900'
+                        crossOrigin={undefined}
+                      />
+                      <Typography
+                        variant='h6'
+                        placeholder='Enter text'
+                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
+                        Generated Password
+                      </Typography>
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          console.log('Password has been generated.');
+                        }}
+                        variant='filled'
+                        color='white'
+                        className='group small w-full flex gap-2 flex-row justify-between border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center  text-gray-500 hover:text-gray-700 transition-all shadow-none hover:shadow-none'
+                        placeholder=''>
+                        <Typography
+                          variant='h6'
+                          placeholder='Enter text'
+                          className='text-sm normal-case tracking-wide'>
+                          xd@!.sPass*ff12deFB
+                        </Typography>
+                        <Square2StackIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
+                      </Button>
+
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          console.log('Password has been generated.');
+                        }}
+                        variant='filled'
+                        color='gray'
+                        className='group mt-7 mb-0 small w-full flex gap-2 bg-gray-900 border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-400 hover:text-gray-200 transition-all'
+                        placeholder=''>
+                        <SparklesIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
+                        <Typography
+                          variant='h6'
+                          placeholder='Enter text'
+                          className='text-sm normal-case tracking-wide'>
+                          Generate
+                        </Typography>
+                      </Button>
+                      <Button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          console.log('Password has been generated.');
+                        }}
+                        variant='filled'
+                        color='white'
+                        className='my-0 w-full border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-700 hover:text-gray-900 transition-all'
+                        placeholder=''>
+                        <Typography
+                          variant='h6'
+                          placeholder='Enter text'
+                          className='text-sm normal-case tracking-wide'>
+                          Save
+                        </Typography>
+                      </Button>
+                    </div>
+                  </div>
+                </form>
+              </CardBody>
+            </Card>
+          </Collapse>
         </div>
       </div>
       <div className='container mx-auto py-5 flex flex-wrap gap-2'>

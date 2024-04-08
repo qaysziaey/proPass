@@ -25,7 +25,7 @@ export default function Home() {
       repeat: Infinity,
       repeatType: 'mirror',
     });
-  }, [color, COLORS]);
+  }, [color]);
 
   return (
     <motion.section
