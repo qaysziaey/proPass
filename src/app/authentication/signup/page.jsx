@@ -10,34 +10,18 @@ import {
 } from '@material-tailwind/react';
 
 export default function SignUp() {
-  const pointerEnter = () => {
-    console.log('Pointer entered.');
-  };
-
-  const pointerLeave = () => {
-    console.log('Pointer left.');
-  };
-
   return (
     <div className='flex justify-center items-center h-screen login-container '>
       <Card
         className='p-6 backdrop-blur-sm bg-gray-900 text-gray-200'
-        placeholder=''
-        onPointerEnterCapture=''
-        onPointerLeaveCapture=''>
-        <Typography
-          variant='h4'
-          placeholder='Enter text'
-          onPointerEnterCapture=''
-          onPointerLeaveCapture=''>
+        placeholder=''>
+        <Typography variant='h4' placeholder='Enter text'>
           Sign Up
         </Typography>
         <Typography
           variant='h6'
           placeholder='Enter text'
-          onPointerEnterCapture=''
-          onPointerLeaveCapture=''
-          className='mt-1 font-normal text-gray-500'>
+          className='mt-1 text-gray-600 tracking-wide'>
           Nice to meet you! Enter your details to register.
         </Typography>
         <form className='mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 flex flex-col gap-4'>
@@ -45,14 +29,10 @@ export default function SignUp() {
             <Typography
               variant='h6'
               placeholder='Enter text'
-              onPointerEnterCapture=''
-              onPointerLeaveCapture=''
-              className='-mb-3'>
-              Your Name
+              className='-mb-3 tracking-wide'>
+              Name
             </Typography>
             <Input
-              onPointerEnterCapture={pointerEnter}
-              onPointerLeaveCapture={pointerLeave}
               size='lg'
               placeholder='name@mail.com'
               className=' !border-t-blue-gray-200 focus:!border-t-gray-900'
@@ -61,14 +41,10 @@ export default function SignUp() {
             <Typography
               variant='h6'
               placeholder='Enter text'
-              onPointerEnterCapture=''
-              onPointerLeaveCapture=''
-              className='-mb-3'>
-              Your Email
+              className='-mb-3 tracking-wide'>
+              Email
             </Typography>
             <Input
-              onPointerEnterCapture={pointerEnter}
-              onPointerLeaveCapture={pointerLeave}
               size='lg'
               placeholder='name@mail.com'
               className=' !border-t-blue-gray-200 focus:!border-t-gray-900'
@@ -77,14 +53,10 @@ export default function SignUp() {
             <Typography
               variant='h6'
               placeholder='Enter text'
-              onPointerEnterCapture=''
-              onPointerLeaveCapture=''
-              className='-mb-3'>
+              className='-mb-3 tracking-wide'>
               Password
             </Typography>
             <Input
-              onPointerEnterCapture={pointerEnter}
-              onPointerLeaveCapture={pointerLeave}
               type='password'
               size='lg'
               placeholder='********'
@@ -97,38 +69,41 @@ export default function SignUp() {
               <Typography
                 variant='h6'
                 placeholder='Enter text'
-                onPointerEnterCapture=''
-                onPointerLeaveCapture=''
-                className='flex items-center font-normal text-gray-500'>
+                className='flex items-center text-gray-600 tracking-wide'>
                 I agree the
                 <Link
                   href='#'
-                  className='font-medium transition-colors hover:text-gray-300'>
+                  className='text-gray-500 transition-colors hover:text-gray-300 '>
                   &nbsp;Terms and Conditions
                 </Link>
               </Typography>
             }
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
             crossOrigin={undefined}
           />
           <Button
-            variant='gradient'
+            variant='filled'
+            color='white'
             className='mt-6 small w-full'
-            onPointerEnterCapture={pointerEnter}
-            onPointerLeaveCapture={pointerLeave}
             placeholder=''>
-            Sign up
+            <Typography
+              variant='h6'
+              placeholder='Enter text'
+              className='text-sm normal-case tracking-wide'>
+              Sign up
+            </Typography>
           </Button>
           <Typography
             variant='h6'
             placeholder='Enter text'
-            onPointerEnterCapture=''
-            onPointerLeaveCapture=''
-            className='mt-4 text-center font-normal'>
-            Already have an account?{' '}
-            <Link href='/login' className='font-medium'>
-              Log in
+            className='mt-4 text-center  text-gray-600'>
+            Have an account?{' '}
+            <Link href='/authentication/login' className='font-medium'>
+              <Typography
+                variant='h6'
+                placeholder='Enter text'
+                className='text-gray-500 hover:text-cyan-300 hover:underline'>
+                Login
+              </Typography>
             </Link>
           </Typography>
         </form>

@@ -86,11 +86,9 @@ export default function Groups() {
                   size='sm'
                   color='white'
                   variant='filled'
-                  className='rounded-lg  flex gap-2 align-middle items-center transition-all normal-case'>
-                  <PlusIcon className='h-5 w-5' />
-                  <Typography variant='paragraph' className='font-bold'>
-                    Add New...
-                  </Typography>
+                  className='rounded-lg flex gap-2 align-middle items-center transition-all normal-case'>
+                  <PlusIcon className='h-4 w-4' />
+                  Add New...
                 </Button>
               </Link>
             </div>

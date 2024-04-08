@@ -8,10 +8,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({ children }) {
   return (
-    <div className={inter.className}>
-      <NavBar />
-      {children}
-    </div>
+    <html lang='en'>
+      <body className={inter.className}>
+        <main>
+          <NavBar />
+        </main>
+        {children}
+      </body>
+    </html>
   );
 }
 RootLayout.propTypes = {

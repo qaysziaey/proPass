@@ -16,6 +16,7 @@ import {
   QrCodeIcon,
   UserIcon,
   UserGroupIcon,
+  HomeIcon,
 } from '@heroicons/react/24/outline';
 
 import { Bars_Fas as HamBurger } from 'iconview/svgs/Bars_Fas';
@@ -40,21 +41,27 @@ export default function NavBar() {
   const navItems = [
     {
       id: 1,
-      name: 'Credentials',
-      href: '/credentials',
-      icon: <QrCodeIcon className='h-6 w-6 text-gray-600' />,
+      name: 'Home',
+      href: '/home',
+      icon: <HomeIcon className='h-5 w-5 text-gray-600' />,
     },
     {
       id: 2,
-      name: 'Users',
-      href: '/users',
-      icon: <UserIcon className='h-6 w-6 text-gray-600' />,
+      name: 'Credentials',
+      href: '/credentials',
+      icon: <QrCodeIcon className='h-5 w-5 text-gray-600' />,
     },
     {
       id: 3,
+      name: 'Users',
+      href: '/user/users',
+      icon: <UserIcon className='h-5 w-5 text-gray-600' />,
+    },
+    {
+      id: 4,
       name: 'Groups',
       href: '/groups',
-      icon: <UserGroupIcon className='h-6 w-6 text-gray-600' />,
+      icon: <UserGroupIcon className='h-5 w-5 text-gray-600' />,
     },
   ];
 
@@ -84,7 +91,7 @@ export default function NavBar() {
         </ul>
         <div className='hidden items-center gap-4 lg:flex'>
           <div className='flex w-full flex-col gap-2 md:flex-row'>
-            <Link href='/login'>
+            <Link href='/authentication/login'>
               <Button
                 size='sm'
                 color='white'
@@ -95,7 +102,7 @@ export default function NavBar() {
                 </Typography>
               </Button>
             </Link>
-            <Link href='/signup'>
+            <Link href='/authentication/signup'>
               <Button
                 size='sm'
                 variant='outlined'
@@ -137,7 +144,7 @@ export default function NavBar() {
             ))}
           </ul>
           <div className='mt-6 mb-4 flex items-center gap-4 flex flex-col'>
-            <Link href='/login'>
+            <Link href='/authentication/login'>
               <Button
                 size='sm'
                 className='w-full rounded-lg bg-gray-200 text-black normal-case hover:bg-gray-300'>
@@ -146,7 +153,7 @@ export default function NavBar() {
                 </Typography>
               </Button>
             </Link>
-            <Link href='/signup'>
+            <Link href='/authentication/signup'>
               <Button
                 size='sm'
                 className='w-full rounded-lg bg-gray-200 text-black normal-case hover:bg-gray-300'>
