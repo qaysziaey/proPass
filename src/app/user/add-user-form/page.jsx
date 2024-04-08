@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-tailwind/react';
 
-export function SimpleRegistrationForm() {
+export default function SimpleRegistrationForm() {
   return (
     <Card color='transparent' shadow={false}>
       <Typography variant='h4' color='blue-gray'>
@@ -76,9 +76,9 @@ export function SimpleRegistrationForm() {
         </Button>
         <Typography color='gray' className='mt-4 text-center font-normal'>
           Already have an account?{' '}
-          <link href='#' className='font-medium text-gray-900'>
+          <Link href='#' className='font-medium text-gray-900'>
             Sign In
-          </link>
+          </Link>
         </Typography>
       </form>
     </Card>
