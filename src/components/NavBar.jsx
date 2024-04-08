@@ -42,7 +42,7 @@ export default function NavBar() {
     {
       id: 1,
       name: 'Home',
-      href: '/home',
+      href: '/',
       icon: <HomeIcon className='h-5 w-5 text-gray-600' />,
     },
     {
@@ -71,7 +71,14 @@ export default function NavBar() {
       fullWidth
       className='border-0 bg-black border-b border-gray-900 px-0 fixed top-0 z-50 backdrop-blur-sm bg-black/30'>
       <div className='container mx-auto flex items-center justify-between'>
-        <Image src={appLogoWhite} alt='ProPass logo' width={100} height={10} />
+        <Link href='/'>
+          <Image
+            src={appLogoWhite}
+            alt='ProPass logo'
+            width={100}
+            height={10}
+          />
+        </Link>
         <ul className='hidden items-center gap-6 lg:flex'>
           {navItems.map((item) => (
             <li className='flex flex-row items-center gap-2' key={item.id}>
@@ -96,8 +103,8 @@ export default function NavBar() {
                 size='sm'
                 color='white'
                 variant='filled'
-                className='rounded-lg py-1 flex align-middle place-items-center transition-transform normal-case '>
-                <Typography variant='h6' className='font-bold'>
+                className='rounded-md flex align-middle place-items-center transition-all normal-case text-gray-600 hover:text-gray-900 tracking-wide'>
+                <Typography variant='h6' className='text-sm'>
                   Log in
                 </Typography>
               </Button>
@@ -105,9 +112,10 @@ export default function NavBar() {
             <Link href='/authentication/signup'>
               <Button
                 size='sm'
-                variant='outlined'
-                className='rounded-lg py-1 flex align-middle place-items-center transition-transform hover:bg-black normal-case text-gray-400 hover:text-white'>
-                <Typography variant='h6' className='font-bold'>
+                color='white'
+                variant='text'
+                className='rounded-md  flex align-middle place-items-center transition-all hover:bg-black normal-case text-gray-400 hover:text-white tracking-wide'>
+                <Typography variant='h6' className='text-sm'>
                   Sign up
                 </Typography>
               </Button>
@@ -119,7 +127,7 @@ export default function NavBar() {
           color='white'
           onClick={handleOpen}
           className='ml-auto inline-block lg:hidden bg-gray-900 text-white rounded-full'>
-          {open ? <HamBurger /> : <XMark />}
+          {open ? <XMark /> : <HamBurger />}
         </IconButton>
       </div>
       <Collapse open={open}>
@@ -127,7 +135,7 @@ export default function NavBar() {
           <ul className='flex flex-col gap-0'>
             {navItems.map((item) => (
               <li
-                className='flex flex-row items-center gap-2 py-5 pl-6 transition-all border-b-[1.5px] border-gray-900/0 hover:border-b-[1.5px] hover:border-gray-900/70 '
+                className='flex flex-row items-center gap-2 py-5 pl-8 transition-all border-b-[1.5px] border-gray-900/0 hover:border-b-[1.5px] hover:border-gray-700/70 '
                 key={item.id}>
                 <Link
                   href={item.href}

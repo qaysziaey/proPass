@@ -7,13 +7,18 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
-import { Button, Typography, Alert } from '@material-tailwind/react';
+import {
+  Button,
+  Typography,
+  Alert,
+  Input,
+  Textarea,
+} from '@material-tailwind/react';
+
 import { Google_Fab as Google } from 'iconview/svgs/Google_Fab';
 import { Instagram_Fab as Instagram } from 'iconview/svgs/Instagram_Fab';
 import { Github_Fab as Github } from 'iconview/svgs/Github_Fab';
 import { Twitter_Fab as Twitter } from 'iconview/svgs/Twitter_Fab';
-
-import { Input } from '@material-tailwind/react';
 
 import CredentialSingleAccount from '../../components/CredentialSingleAccount';
 
@@ -104,88 +109,111 @@ export default function Credentials() {
               </Link>
             </div>
           </div>
-          <div className=' text-white py-6 flex flex-row gap-2' color='white'>
-            <div className=' flex-1 grow gap-2 flex flex-col'>
-              <Typography variant='h6' className='font-bold'>
-                Account
-              </Typography>
-              <Input
-                label='Title'
-                color='black'
-                type='text'
-                placeholder='Account name'
-                className='!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10'
-                labelProps={{
-                  className: 'hidden',
-                }}
-                containerProps={{ className: 'min-w-[100px]' }}
-              />
-              <Typography variant='h6' className='font-bold'>
-                Email
-              </Typography>
-              <Input
-                label='Email'
-                color='black'
-                type='email'
-                placeholder='Email Address'
-                className='!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10'
-                labelProps={{
-                  className: 'hidden',
-                }}
-                containerProps={{ className: 'min-w-[100px]' }}
-              />
-              <Typography variant='h6' className='font-bold mb-0 pb-0'>
-                Description
-              </Typography>
-              <Input
-                label='Decription'
-                color='black'
-                type='textarea'
-                placeholder='Description'
-                className='!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-gray-600/10 placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10'
-                labelProps={{
-                  className: 'hidden',
-                }}
-                containerProps={{ className: 'min-w-[100px]' }}
-              />
-            </div>
-            <div className='flex flex-col flex-1'>
-              <Typography variant='h6' className='font-bold mb-0 pb-0'>
-                Password
-              </Typography>
-              <Input
-                label='Decription'
-                color='black'
-                type='text'
-                placeholder='Password'
-                className='!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-gray-600/10 placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10'
-                labelProps={{
-                  className: 'hidden',
-                }}
-                containerProps={{ className: 'min-w-[100px]' }}
-              />
-              <Typography variant='h6' className='font-bold mb-0 pb-0 mt-4'>
-                Generated Password
-              </Typography>
-
-              <Button
-                onClick={() => {
-                  console.log('Logged in.');
-                }}
-                variant='gradient'
-                color='white'
-                className='mt-6 small w-full text-gray-900 flex gap-2 justify-center align-middle items-center transition-all normal-case'
-                placeholder=''>
-                <SparklesIcon className='h-5 w-5 text-cyan-600' />
+          <form>
+            <div className='flex flex-row gap-6 w-full  justify-center lg:px-60 flex-wrap'>
+              <div className='mb-1  flex flex-col gap-6 flex-auto'>
                 <Typography
                   variant='h6'
                   placeholder='Enter text'
-                  className='text-sm normal-case tracking-wide'>
-                  Generate
+                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
+                  Account name
                 </Typography>
-              </Button>
+                <Input
+                  size='lg'
+                  placeholder='name@mail.com'
+                  className='flex-grow !border-t-blue-gray-200 focus:!border-gray-900 border-[1.5px] border-gray-900'
+                  crossOrigin={undefined}
+                />
+                <Typography
+                  variant='h6'
+                  placeholder='Enter text'
+                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
+                  Email
+                </Typography>
+                <Input
+                  size='lg'
+                  placeholder='name@mail.com'
+                  className=' !border-t-blue-gray-200 focus:!border-t-gray-900'
+                  crossOrigin={undefined}
+                />
+                <Typography
+                  variant='h6'
+                  placeholder='Enter text'
+                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
+                  Description
+                </Typography>
+                <Textarea
+                  variant='outlined'
+                  placeholder='Static'
+                  className=' !border-t-blue-gray-200 focus:!border-t-gray-900 h-32'
+                />
+              </div>
+              <div className='mb-1 flex flex-col gap-6 flex-grow'>
+                <Typography
+                  variant='h6'
+                  placeholder='Enter text'
+                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
+                  Password
+                </Typography>
+                <Input
+                  type='password'
+                  size='lg'
+                  placeholder='********'
+                  className='flex-grow !border-t-blue-gray-200 focus:!border-t-gray-900'
+                  crossOrigin={undefined}
+                />
+                <Typography
+                  variant='h6'
+                  placeholder='Enter text'
+                  className='-mb-5 tracking-wide text-gray-500 tracking-wide'>
+                  Generated Password
+                </Typography>
+                <Input
+                  label='xd@!.sPass*ff12deFBsx!.sPass*ff12deFBs'
+                  type='text'
+                  size='lg'
+                  color='gray'
+                  placeholder='xd@!.sPass*ff12deFBsx!.sPass*ff12deFBs'
+                  className='flex-grow !border-t-blue-gray-200 focus:!border-t-gray-900 bg-gray-900 truncate'
+                  crossOrigin={undefined}
+                  disabled
+                />
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('Password has been generated.');
+                  }}
+                  variant='filled'
+                  color='gray'
+                  className='group mt-9 small w-full flex gap-2 bg-gray-900 border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-500 hover:text-gray-300 transition-all'
+                  placeholder=''>
+                  <SparklesIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
+                  <Typography
+                    variant='h6'
+                    placeholder='Enter text'
+                    className='text-sm normal-case tracking-wide'>
+                    Generate
+                  </Typography>
+                </Button>
+                <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('Password has been generated.');
+                  }}
+                  variant='filled'
+                  color='white'
+                  className=' w-full border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-700 hover:text-gray-900 transition-all'
+                  placeholder=''>
+                  <Typography
+                    variant='h6'
+                    placeholder='Enter text'
+                    className='text-sm normal-case tracking-wide'>
+                    Save
+                  </Typography>
+                </Button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className='container mx-auto py-5 flex flex-wrap gap-2'>
