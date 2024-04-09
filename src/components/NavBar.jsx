@@ -3,7 +3,7 @@ import { useState, useEffect, React } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import appLogoWhite from '../../public/logo-white.png';
+import appLogoWhite from '../../public/pp-logo.png';
 import {
   Navbar,
   Collapse,
@@ -69,15 +69,10 @@ export default function NavBar() {
     <Navbar
       shadow={false}
       fullWidth
-      className='border-0 bg-black border-b border-gray-900 px-0 fixed top-0 z-50 backdrop-blur-sm bg-black/30'>
+      className='border-0 bg-black border-b border-gray-900 px-0 fixed top-0 z-50'>
       <div className='container mx-auto flex items-center justify-between'>
         <Link href='/'>
-          <Image
-            src={appLogoWhite}
-            alt='ProPass logo'
-            width={100}
-            height={10}
-          />
+          <Image src={appLogoWhite} alt='ProPass logo' width={28} height={10} />
         </Link>
         <ul className='hidden items-center gap-6 lg:flex'>
           {navItems.map((item) => (
@@ -98,18 +93,18 @@ export default function NavBar() {
         </ul>
         <div className='hidden items-center gap-4 lg:flex'>
           <div className='flex w-full flex-col gap-2 md:flex-row'>
-            <Link href='/authentication/login'>
+            <Link href='/sign-in'>
               <Button
                 size='sm'
                 color='white'
                 variant='filled'
                 className='rounded-md flex align-middle place-items-center transition-all normal-case text-gray-600 hover:text-gray-900 tracking-wide'>
                 <Typography variant='h6' className='text-sm'>
-                  Log in
+                  Sign in
                 </Typography>
               </Button>
             </Link>
-            <Link href='/authentication/signup'>
+            <Link href='/sign-up'>
               <Button
                 size='sm'
                 color='white'
@@ -135,7 +130,7 @@ export default function NavBar() {
           <ul className='flex flex-col gap-0'>
             {navItems.map((item) => (
               <li
-                className='flex flex-row items-center gap-2 py-5 pl-8 transition-all border-b-[1.5px] border-gray-900/0 hover:border-b-[1.5px] hover:border-gray-700/70 '
+                className='flex flex-row items-center gap-2 py-5 pl-8 transition-all hover:bg-gray-900/40 '
                 key={item.id}>
                 <Link
                   href={item.href}
@@ -151,23 +146,23 @@ export default function NavBar() {
               </li>
             ))}
           </ul>
-          <div className='mt-6 mb-4 flex items-center gap-4 flex flex-col'>
-            <Link href='/authentication/login'>
+          <div className='mt-6 mb-4 flex items-between gap-4 flex flex-row justify-center'>
+            <Link href='/sign-up'>
               <Button
                 size='sm'
-                className='w-full rounded-lg bg-gray-200 text-black normal-case hover:bg-gray-300'>
-                <Typography variant='h6' className=''>
-                  Log in
-                </Typography>
+                color='white'
+                variant='filled'
+                className='rounded-md w-full flex align-middle place-items-center transition-all normal-case text-gray-600 hover:gray-900 tracking-wide'>
+                <Typography variant='h6'>Sign up</Typography>
               </Button>
             </Link>
-            <Link href='/authentication/signup'>
+            <Link href='/sign-up'>
               <Button
                 size='sm'
-                className='w-full rounded-lg bg-gray-200 text-black normal-case hover:bg-gray-300'>
-                <Typography variant='h6' className=''>
-                  Sign up
-                </Typography>
+                color='gray'
+                variant='filled'
+                className='rounded-md w-full flex align-middle place-items-center transition-all hover:bg-black normal-case text-gray-400 hover:text-white tracking-wide'>
+                <Typography variant='h6'>Sign up</Typography>
               </Button>
             </Link>
           </div>

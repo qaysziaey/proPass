@@ -126,62 +126,43 @@ export default function Credentials() {
                 <form>
                   <div className='flex flex-row gap-6 w-full  justify-center lg:px-60 flex-wrap'>
                     <div className='mb-1  flex flex-col gap-6 flex-auto'>
-                      <Typography
-                        variant='h6'
-                        placeholder='Enter text'
-                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
-                        Account name
-                      </Typography>
                       <Input
+                        label='Account title'
                         size='lg'
                         placeholder='name@mail.com'
                         className='flex-grow border border-blue-500 text-gray-800'
                         crossOrigin={undefined}
                       />
-                      <Typography
-                        variant='h6'
-                        placeholder='Enter text'
-                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
-                        Email
-                      </Typography>
                       <Input
+                        label='Email'
                         size='lg'
                         placeholder='name@mail.com'
-                        className=' !border-t-blue-gray-200 focus:!border-t-gray-900'
+                        className='flex-grow border border-blue-500 text-gray-800'
                         crossOrigin={undefined}
                       />
-                      <Typography
-                        variant='h6'
-                        placeholder='Enter text'
-                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
-                        Description
-                      </Typography>
+
                       <Textarea
                         variant='outlined'
-                        placeholder='Static'
-                        className=' !border-t-blue-gray-200 focus:!border-t-gray-900 h-32'
+                        label='Description'
+                        // placeholder='Write further notes here...'
+                        className='border-2 border-gray-500'
                       />
                     </div>
                     <div className='mb-1 flex flex-col gap-6 flex-grow'>
-                      <Typography
-                        variant='h6'
-                        placeholder='Enter text'
-                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
-                        Password
-                      </Typography>
                       <Input
+                        label='Password'
                         type='password'
                         size='lg'
                         placeholder='********'
-                        className='flex-grow !border-t-blue-gray-200 focus:!border-t-gray-900'
+                        className='flex-grow border border-blue-500 text-gray-800'
                         crossOrigin={undefined}
                       />
-                      <Typography
+                      {/* <Typography
                         variant='h6'
                         placeholder='Enter text'
                         className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
                         Generated Password
-                      </Typography>
+                      </Typography> */}
                       <Button
                         onClick={(e) => {
                           e.preventDefault();
@@ -200,39 +181,41 @@ export default function Credentials() {
                         <Square2StackIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
                       </Button>
 
-                      <Button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          console.log('Password has been generated.');
-                        }}
-                        variant='filled'
-                        color='gray'
-                        className='group mt-7 mb-0 small w-full flex gap-2 bg-gray-900 border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-400 hover:text-gray-200 transition-all'
-                        placeholder=''>
-                        <SparklesIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
-                        <Typography
-                          variant='h6'
-                          placeholder='Enter text'
-                          className='text-sm normal-case tracking-wide'>
-                          Generate
-                        </Typography>
-                      </Button>
-                      <Button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          console.log('Password has been generated.');
-                        }}
-                        variant='filled'
-                        color='white'
-                        className='my-0 w-full border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-700 hover:text-gray-900 transition-all'
-                        placeholder=''>
-                        <Typography
-                          variant='h6'
-                          placeholder='Enter text'
-                          className='text-sm normal-case tracking-wide'>
-                          Save
-                        </Typography>
-                      </Button>
+                      <div className='flex flex-col gap-3'>
+                        <Button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log('Password has been generated.');
+                          }}
+                          variant='filled'
+                          color='gray'
+                          className='group mb-0 small w-full flex gap-2 bg-gray-900 border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-400 hover:text-gray-200 transition-all'
+                          placeholder=''>
+                          <SparklesIcon className='h-5 w-5 text-gray-600 group-hover:text-cyan-300 transition-all' />
+                          <Typography
+                            variant='h6'
+                            placeholder='Enter text'
+                            className='text-sm normal-case tracking-wide'>
+                            Generate
+                          </Typography>
+                        </Button>
+                        <Button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            console.log('Password has been generated.');
+                          }}
+                          variant='filled'
+                          color='white'
+                          className='my-0 w-full border-[1.5px] border-gray-700/20 hover:border-gray-700/30  items-center justify-center text-gray-700 hover:text-gray-900 transition-all'
+                          placeholder=''>
+                          <Typography
+                            variant='h6'
+                            placeholder='Enter text'
+                            className='text-sm normal-case tracking-wide'>
+                            Save
+                          </Typography>
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </form>

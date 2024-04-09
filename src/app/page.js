@@ -56,7 +56,7 @@ export default function Home() {
               </Typography>
               <div className='mt-8 grid  place-items-center md:justify-center'>
                 <div className='flex w-full flex-col gap-2 md:flex-row md:justify-center align-middle items-center'>
-                  <Link href='/authentication/login'>
+                  <Link href='/sign-in'>
                     <motion.button
                       whileHover={{ color: '#fff' }}
                       whileTap={{ scale: 0.985 }}
