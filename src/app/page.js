@@ -34,7 +34,7 @@ export default function Home() {
       }}
       className='w-full h-screen  text-white '>
       <div className='mx-auto'>
-        <header className='landing-section  h-screen bg-cover'>
+        <header className='landing-section h-screen bg-cover'>
           <div className='grid min-h-[82vh] w-full lg:h-[54rem] md:h-[34rem] place-items-center bg-center bg-contain bg-no-repeat'>
             <div className='container mx-auto px-4 text-center'>
               <Typography
