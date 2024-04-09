@@ -3,7 +3,7 @@ import { useState, useEffect, React } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import appLogoWhite from '../../public/pp-logo.png';
+import appLogoWhite from '../../public/logo-white.png';
 import {
   Navbar,
   Collapse,
@@ -13,10 +13,10 @@ import {
 } from '@material-tailwind/react';
 
 import {
-  QrCodeIcon,
   UserIcon,
   UserGroupIcon,
   HomeIcon,
+  Squares2X2Icon,
 } from '@heroicons/react/24/outline';
 
 import { Bars_Fas as HamBurger } from 'iconview/svgs/Bars_Fas';
@@ -47,9 +47,9 @@ export default function NavBar() {
     },
     {
       id: 2,
-      name: 'Credentials',
-      href: '/credentials',
-      icon: <QrCodeIcon className='h-5 w-5 text-gray-600' />,
+      name: 'Dashboard',
+      href: '/dashboard',
+      icon: <Squares2X2Icon className='h-5 w-5 text-gray-600' />,
     },
     {
       id: 3,
@@ -63,6 +63,12 @@ export default function NavBar() {
       href: '/groups',
       icon: <UserGroupIcon className='h-5 w-5 text-gray-600' />,
     },
+    {
+      id: 5,
+      name: 'Form',
+      href: '/user-form',
+      icon: <UserGroupIcon className='h-5 w-5 text-gray-600' />,
+    },
   ];
 
   return (
@@ -72,7 +78,12 @@ export default function NavBar() {
       className='border-0 bg-black border-b border-gray-900 px-0 fixed top-0 z-50'>
       <div className='container mx-auto flex items-center justify-between'>
         <Link href='/'>
-          <Image src={appLogoWhite} alt='ProPass logo' width={28} height={10} />
+          <Image
+            src={appLogoWhite}
+            alt='ProPass logo'
+            width={100}
+            height={10}
+          />
         </Link>
         <ul className='hidden items-center gap-6 lg:flex'>
           {navItems.map((item) => (

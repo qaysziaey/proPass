@@ -6,6 +6,10 @@ import {
   CheckCircleIcon,
   SparklesIcon,
   Square2StackIcon,
+  CreditCardIcon,
+  FingerPrintIcon,
+  RectangleGroupIcon,
+  PlayIcon,
 } from '@heroicons/react/24/outline';
 
 import {
@@ -17,6 +21,8 @@ import {
   Collapse,
   Card,
   CardBody,
+  Select,
+  Option,
 } from '@material-tailwind/react';
 
 import { Google_Fab as Google } from 'iconview/svgs/Google_Fab';
@@ -26,7 +32,7 @@ import { Twitter_Fab as Twitter } from 'iconview/svgs/Twitter_Fab';
 
 import CredentialSingleAccount from '../../components/CredentialSingleAccount';
 
-export default function Credentials() {
+export default function Dashboard() {
   const [copyNotification, setCopyNotification] = useState(true);
   const [open, setOpen] = useState(false);
 
@@ -90,7 +96,7 @@ export default function Credentials() {
   ];
   return (
     <div className='flex p-0 text-white h-screen flex-col'>
-      <div className='w-full border-b border-[#1e272e] flex flex-col pt-[100px] pb-10 bg-gray-900 bg-gradient-to-br from-black to-gray'>
+      <div className='w-full border-b border-[#1e272e] flex flex-col pt-[100px]  bg-gray-900 bg-gradient-to-br from-black to-gray'>
         <div className='relative flex justify-center items-center'>
           {copyNotification}
         </div>
@@ -121,7 +127,7 @@ export default function Credentials() {
           </div>
 
           <Collapse open={open} className='w-full'>
-            <Card className='my-4 w-full flex py-4 flex-col gap-4 bg-gray-100 transition-all'>
+            <Card className='my-4 w-full flex py-4 flex-col gap-4 bg-gray-50 transition-all'>
               <CardBody>
                 <form>
                   <div className='flex flex-row gap-6 w-full  justify-center lg:px-60 flex-wrap'>
@@ -145,10 +151,28 @@ export default function Credentials() {
                         variant='outlined'
                         label='Description'
                         // placeholder='Write further notes here...'
-                        className='border-2 border-gray-500'
+                        className='border-2 border-gray-500 h-40 text-gray-800'
                       />
                     </div>
                     <div className='mb-1 flex flex-col gap-6 flex-grow'>
+                      <Select label='Choose account logo'>
+                        <Option className='flex gap-4 text-gray-600 flex-row items-center'>
+                          <FingerPrintIcon className='h-7 w-7 m-0 text-orange-500 bg-orange-600/10 p-1 rounded-lg group-hover:text-cyan-300 transition-all' />
+                          <Typography variant='h6'>Login</Typography>
+                        </Option>
+                        <Option className='flex gap-4 text-gray-600 flex-row items-center'>
+                          <PlayIcon className='h-7 w-7 text-red-600  bg-red-300/10 p-1 rounded-lg group-hover:text-cyan-300 transition-all' />
+                          Streaming{' '}
+                        </Option>
+                        <Option className='flex gap-4 text-gray-600 flex-row items-center'>
+                          <CreditCardIcon className='h-7 w-7 text-cyan-500 bg-cyan-300/10 p-1 rounded-lg group-hover:text-cyan-300 transition-all' />
+                          <Typography variant='h6'>Card</Typography>
+                        </Option>
+                        <Option className='flex gap-4 text-gray-600 flex-row items-center'>
+                          <RectangleGroupIcon className='h-7 w-7 text-purple-500 bg-purple-300/10 p-1 rounded-lg group-hover:text-cyan-300 transition-all' />
+                          <Typography variant='h6'>Socials</Typography>
+                        </Option>
+                      </Select>
                       <Input
                         label='Password'
                         type='password'
