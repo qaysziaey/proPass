@@ -1,16 +1,14 @@
-import { NextResponse } from 'next/server';
-import connectDB from '../../../lib/mongo/connectDB';
-import { User } from '../../../../model/Users';
+import { NextResponse } from "next/server";
+import connectDB from "../../../lib/mongo/connectDB";
+import { User } from "../../../../model/Users";
 
 export const GET = async (request) => {
   try {
     await connectDB();
 
-    return NextResponse.json('User List', {
-      status: 200,
-    });
+    return NextResponse.json("Users list");
   } catch (error) {
-    return new Response('Failed to fetch all users', {
+    return new Response("Failed to fetch all users", {
       status: 500,
     });
   }
@@ -35,7 +33,7 @@ export const POST = async (request) => {
 
     return NextResponse.json(user, { status: 200 });
   } catch (error) {
-    return new Response('Failed to create new user', {
+    return new Response("Failed to create new user", {
       status: 500,
     });
   }

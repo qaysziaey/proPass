@@ -1,17 +1,17 @@
-import { NextResponse } from 'next/server';
-import connectDB from '../../../lib/mongo/connectDB';
+import { NextResponse } from "next/server";
+import connectDB from "../../../lib/mongo/connectDB";
 
-import { UserCredential } from '../../../../model/UserCredential';
+import { UserCredential } from "../../../../model/UserCredential";
 
 export const GET = async (request) => {
   try {
     await connectDB();
 
-    return NextResponse.json('User Credential', {
+    return NextResponse.json("User Credential", {
       status: 200,
     });
   } catch (error) {
-    return new Response('Failed to fetch all user credentials', {
+    return new Response("Failed to fetch all user credentials", {
       status: 500,
     });
   }
@@ -42,7 +42,7 @@ export const POST = async (request) => {
 
     return NextResponse.json(userCredential);
   } catch (error) {
-    return new Response('Failed to create new user credential', {
+    return new Response("Failed to create new user credential", {
       status: 500,
     });
   }
