@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const CredentialSchema = new Schema(
@@ -18,7 +18,7 @@ const CredentialSchema = new Schema(
     accountLogo: {
       type: Number,
       required: true,
-      default: 'default.png',
+      default: "default.png",
     },
     password: [
       {
@@ -29,11 +29,12 @@ const CredentialSchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // model the collection
 const Credential =
-  mongoose.models.Credential || mongoose.model('Credential', CredentialSchema);
+  mongoose.models.Credential ||
+  mongoose.model("Credential", CredentialSchema, "credentials");
 
 module.exports = Credential;

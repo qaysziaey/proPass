@@ -82,7 +82,9 @@ body{
   background-color: rgb(26, 26, 26);
 
 }
-
+.not-found-page-bg{
+    background-image: url('../../public/boxes.svg');
+}
 
 .nav-blur-bg{
   background: rgba(0,0,0,0.65);

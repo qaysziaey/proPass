@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import connectDB from "../../../lib/mongo/connectDB";
 
-import { UserCredential } from "../../../../model/UserCredential";
+import UserCredential from "../../../../model/UserCredential";
 
 export const GET = async (request) => {
   try {
     await connectDB();
 
-    return NextResponse.json("User Credential", {
+    const userCredential = await UserCredential.find({});
+    return NextResponse.json(userCredential, {
       status: 200,
     });
   } catch (error) {
