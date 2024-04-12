@@ -3,7 +3,7 @@ import connectDB from "../../../lib/mongo/connectDB";
 
 import UserCredential from "../../../../model/UserCredential";
 
-export const GET = async (request) => {
+export const GET = async () => {
   try {
     await connectDB();
 
@@ -21,21 +21,14 @@ export const GET = async (request) => {
 export const POST = async (request) => {
   try {
     await connectDB();
-    const {
-      accountTitle,
-      email,
-      password,
-      description,
-      accountLogo,
-      credentailList,
-    } = request.body;
+    const { accountTitle, email, password, description, accountLogo } =
+      request.body;
     const userCredential = new UserCredential({
       accountTitle,
       email,
       password,
       description,
       accountLogo,
-      credentailList,
     });
 
     // save user

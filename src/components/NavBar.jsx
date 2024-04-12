@@ -1,13 +1,18 @@
 "use client";
 import { useState, useEffect, React } from "react";
-
+import {
+  useUser,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import Link from "next/link";
 import Image from "next/image";
 import appLogoWhite from "../../public/logo-white.png";
 import {
   Navbar,
   Collapse,
-  Button,
   IconButton,
   Typography,
 } from "@material-tailwind/react";
@@ -25,6 +30,8 @@ import { Xmark_Fas as XMark } from "iconview/svgs/Xmark_Fas";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const { isSignedIn, isLoaded } = useUser();
+
   const handleOpen = () => setOpen((cur) => !cur);
 
   // On resize, if the screen is wider than 960px, close the navbar if it's open.
@@ -86,61 +93,56 @@ export default function NavBar() {
             height={10}
           />
         </Link>
-        <ul className="hidden items-center gap-6 lg:flex">
-          {navItems.map((item) => (
-            <li className="flex flex-row items-center gap-2" key={item.id}>
-              <Link
-                href={item.href}
-                className="flex flex-row items-center gap-2"
-              >
-                {item.icon}
-                <Typography
+
+        {isLoaded && isSignedIn && (
+          <ul className="hidden items-center gap-6 lg:flex">
+            {navItems.map((item) => (
+              <li className="flex flex-row items-center gap-2" key={item.id}>
+                <Link
                   href={item.href}
-                  variant="h6"
-                  className="text-gray-400 transition-all hover:text-white"
+                  className="flex flex-row items-center gap-2"
                 >
-                  {item.name}
-                </Typography>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className="hidden items-center gap-4 lg:flex">
-          <div className="flex w-full flex-col gap-2 md:flex-row">
-            <Link href="/sign-in">
-              <Button
-                size="sm"
-                color="white"
-                variant="filled"
-                className="flex place-items-center rounded-md align-middle normal-case tracking-wide text-gray-600 transition-all hover:text-gray-900"
-              >
-                <Typography variant="h6" className="text-sm">
-                  Sign in
-                </Typography>
-              </Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button
-                size="sm"
-                color="white"
-                variant="text"
-                className="flex  place-items-center rounded-md align-middle normal-case tracking-wide text-gray-400 transition-all hover:bg-black hover:text-white"
-              >
-                <Typography variant="h6" className="text-sm">
-                  Sign up
-                </Typography>
-              </Button>
-            </Link>
+                  {item.icon}
+                  <Typography
+                    href={item.href}
+                    variant="h6"
+                    className="text-gray-400 transition-all hover:text-white"
+                  >
+                    {item.name}
+                  </Typography>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="hidden items-center gap-2 rounded-full shadow-lg shadow-cyan-800 lg:flex">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
+        <div className="flex items-center gap-2 lg:hidden ">
+          <div className="flex items-center gap-2 rounded-full shadow-lg shadow-cyan-800">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
+          <div>
+            <IconButton
+              variant="filled"
+              color="white"
+              onClick={handleOpen}
+              className="ml-auto inline-block rounded-full bg-gray-900 text-white lg:hidden"
+            >
+              {open ? <XMark /> : <HamBurger />}
+            </IconButton>
           </div>
         </div>
-        <IconButton
-          variant="filled"
-          color="white"
-          onClick={handleOpen}
-          className="ml-auto inline-block rounded-full bg-gray-900 text-white lg:hidden"
-        >
-          {open ? <XMark /> : <HamBurger />}
-        </IconButton>
       </div>
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-900 px-0 py-0">
@@ -166,28 +168,6 @@ export default function NavBar() {
               </li>
             ))}
           </ul>
-          <div className="items-between mb-4 mt-6 flex flex flex-row justify-center gap-4">
-            <Link href="/sign-up">
-              <Button
-                size="sm"
-                color="white"
-                variant="filled"
-                className="hover:gray-900 flex w-full place-items-center rounded-md align-middle normal-case tracking-wide text-gray-600 transition-all"
-              >
-                <Typography variant="h6">Sign up</Typography>
-              </Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button
-                size="sm"
-                color="gray"
-                variant="filled"
-                className="flex w-full place-items-center rounded-md align-middle normal-case tracking-wide text-gray-400 transition-all hover:bg-black hover:text-white"
-              >
-                <Typography variant="h6">Sign up</Typography>
-              </Button>
-            </Link>
-          </div>
         </div>
       </Collapse>
     </Navbar>

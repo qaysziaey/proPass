@@ -95,9 +95,14 @@ border: 4px solid #1c2050;
 }
 
 .signin-background{
-  background-image: url('../../public/gradient-2-bg.svg');
+  background-image: url('../../public/blurry.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  color: #445EF2;
+  color: #6B7FF2;
+  color: #263973;
+  color: #010E26;
+  color: #05C7F2;
 }

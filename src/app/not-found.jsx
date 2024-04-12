@@ -18,7 +18,7 @@ export default function NotFoundPage() {
         </Typography>
         <div className="flex flex-col items-center gap-4">
           <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Sorry, we couldn't find the page you were looking for.
+            Sorry, we couldn&apos;t find the page you were looking for.
           </p>
           <Link href="/">
             <Button
