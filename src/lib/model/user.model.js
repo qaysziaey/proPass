@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema, model, models } = mongoose;
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   clerkId: { type: String, required: true, unique: true },
