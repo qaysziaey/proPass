@@ -78,12 +78,10 @@
   }
 }
 body{
-  /* background-image: url('../../public/boxes.svg'); */
   background-color: rgb(26, 26, 26);
-
 }
 .not-found-page-bg{
-    background-image: url('../../public/boxes.svg');
+  background-color: #1c2050;
 }
 
 .nav-blur-bg{

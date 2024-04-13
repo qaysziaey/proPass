@@ -115,7 +115,7 @@ export default function NavBar() {
             ))}
           </ul>
         )}
-        <div className="hidden items-center gap-2 rounded-full shadow-lg shadow-cyan-800 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <SignedOut>
             <SignInButton />
           </SignedOut>
@@ -124,12 +124,12 @@ export default function NavBar() {
           </SignedIn>
         </div>
         <div className="flex items-center gap-2 lg:hidden ">
-          <div className="flex items-center gap-2 rounded-full shadow-lg shadow-cyan-800">
+          <div className="flex items-center gap-2">
             <SignedOut>
               <SignInButton />
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <UserButton afterSignOutUrl="/" />
             </SignedIn>
           </div>
           <div>
