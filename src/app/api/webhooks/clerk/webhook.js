@@ -1,8 +1,29 @@
+import mongoose from "mongoose";
 import { clerkClient } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 
-import { createUser } from "../../../../lib/actions/user.action";
+// import { createUser } from "../../../../lib/actions/user.action";
+
+// MongoDB connection setup
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Define the user schema
+const userSchema = new mongoose.Schema({
+  clerkId: String,
+  email: String,
+  username: String,
+  firstName: String,
+  lastName: String,
+  profilePic: String,
+  password: String,
+  credentialList: [String],
+});
+
+const UserModel = mongoose.models.User || mongoose.model("User", userSchema);
 
 export default async function POST(req, res) {
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
@@ -11,7 +32,6 @@ export default async function POST(req, res) {
     return res.status(500).send("WEBHOOK_SECRET is missing");
   }
 
-  // Get the headers
   // Get the headers
   const svix_id = req.headers["svix-id"];
   const svix_timestamp = req.headers["svix-timestamp"];
@@ -46,11 +66,11 @@ export default async function POST(req, res) {
   const { id } = evt.data;
   const eventType = evt.type;
 
-  // Create a new user in mongodb
-
+  // Create a new user in MongoDB
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } =
       evt.data;
+
     const user = {
       clerkId: id,
       email: email_addresses[0].email_address,
@@ -59,20 +79,26 @@ export default async function POST(req, res) {
       lastName: last_name,
       profilePic: image_url,
       password: "password",
-      credentailList: [],
+      credentialList: [],
     };
 
     console.log("User created:", user);
-    const newUser = await createUser(user);
 
-    if (newUser) {
+    try {
+      const newUser = new UserModel(user);
+      await newUser.save();
+
       await clerkClient.users.updateUserMetadata(id, {
         publicMetadata: {
           userId: newUser._id,
         },
       });
+
+      return NextResponse.json({ message: "User created", user: newUser });
+    } catch (error) {
+      console.error("Error creating user in MongoDB:", error);
+      return res.status(500).send("Error creating user in MongoDB");
     }
-    return NextResponse.json({ message: "User created", user: newUser });
   }
 
   console.log(`Webhook with an ID of ${id} and type of ${eventType}`);
