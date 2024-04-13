@@ -11,12 +11,12 @@ if (!cached) {
   };
 }
 
-exports.connect = async () => {
+exports.connectDB = async () => {
   if (cached.conn) return cached.conn;
 
   cached.promise =
     cached.promise ||
-    mongoose.connect(MONGODB_URL, {
+    mongoose.connectDB(MONGODB_URL, {
       dbName: "clerk-users",
       bufferCommands: false,
       connectTimeoutMS: 30000,

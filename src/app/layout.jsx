@@ -13,14 +13,19 @@ const metadata = {
   description: "A project management tool",
 };
 
+if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
+  throw new Error("Missing Clerk publishable key");
+}
+const clerkPubKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider redirectUrl="/">
+    <ClerkProvider publishableKey={clerkPubKey}>
       <html lang="en">
         <head>
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
-          <link rel="icon" href="/boxed-logo.png" />
+          {/* <link rel="icon" href="/boxed-logo.png" /> */}
         </head>
         <body className={inter.className}>
           <main>

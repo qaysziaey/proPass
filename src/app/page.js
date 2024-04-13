@@ -47,7 +47,7 @@ export default function Home() {
               </Typography>
               <Typography
                 variant="h1"
-                className="mx-auto my-10 w-full pb-4 text-5xl leading-loose text-gray-300"
+                className="mx-auto w-full bg-gradient-to-b from-gray-400 to-cyan-900 bg-clip-text py-2 text-center  font-bold tracking-tighter text-transparent  md:text-4xl/relaxed lg:text-5xl/relaxed xl:text-6xl/relaxed"
               >
                 Enhance your digital safety with ease. Simplify passwords,
                 amplify protection.

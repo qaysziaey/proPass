@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, React } from "react";
+
 import {
   useUser,
   SignedIn,
@@ -120,7 +121,7 @@ export default function NavBar() {
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <UserButton afterSignOutUrl="/" />
           </SignedIn>
         </div>
         <div className="flex items-center gap-2 lg:hidden ">
