@@ -15,7 +15,7 @@ const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider redirectUrl="/">
       <html lang="en">
         <head>
           <title>{metadata.title}</title>

@@ -37,6 +37,7 @@
     "three": "^0.163.0"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.11.97",
     "@types/node": "20.12.3",
     "@types/react": "18.2.74",
     "autoprefixer": "^10.0.1",
