@@ -78,11 +78,9 @@
   }
 }
 body{
-  background-color: rgb(26, 26, 26);
+  background-color: rgb(4, 4, 4);
 }
-.not-found-page-bg{
-  background-color: #1c2050;
-}
+
 
 .nav-blur-bg{
   background: rgba(0,0,0,0.65);
