@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
     "strict": false,
     "noEmit": true,
@@ -26,9 +23,8 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/authentication/login/page.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.tsx",
+    "src/app/authentication/login/page.jsx"
+  ],
+  "exclude": ["node_modules"]
 }
