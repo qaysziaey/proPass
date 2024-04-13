@@ -59,6 +59,7 @@ export default async function POST(req, res) {
       lastName: last_name,
       profilePic: image_url,
       password: "password",
+      credentailList: [],
     };
 
     console.log("User created:", user);
