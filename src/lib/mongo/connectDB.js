@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -11,7 +11,7 @@ if (!cached) {
   };
 }
 
-const connectDB = async () => {
+export const connectDB = async () => {
   if (cached.conn) return cached.conn;
 
   cached.promise =
@@ -26,5 +26,3 @@ const connectDB = async () => {
 
   return cached.conn;
 };
-
-module.exports = connectDB;
