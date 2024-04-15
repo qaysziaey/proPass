@@ -16,9 +16,12 @@ export default function Home() {
         >
           Enhance your digital safety with ease.
         </Typography>
-        <Typography variant="h6" className="mx-auto w-full text-gray-700">
-          The time is now for it to be okay to be great. For being a bright
-          color. For standing out.
+        <Typography
+          variant="h6"
+          className="mx-auto w-full tracking-wide  text-gray-700"
+        >
+          Empower yourself online with our straightforward solutions. Stay
+          secure effortlessly.
         </Typography>
         <div className="grid place-items-center  py-12 md:justify-center">
           <div className="flex w-full flex-col items-center gap-2 align-middle md:flex-row md:justify-center">
