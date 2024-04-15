@@ -11,29 +11,30 @@ export default function CredentialSingleAccount({
   accountIcon,
 }) {
   return (
-    <div className="w-70 flex flex h-10 grow flex-row items-center justify-between gap-3 rounded-[12px] border-[1.5px] border-[#2f3640]/50 bg-gray-900 py-9 pl-3 pr-4 align-middle text-gray-400 transition-all  hover:border-cyan-300/20 hover:bg-gray-800/40">
-      <div className="flex rounded-xl bg-gray-800/30 p-2 text-cyan-100">
-        {accountIcon}
-      </div>
+    <div className="flex flex-1 items-center justify-between gap-3 rounded-xl  bg-gray-200/30 p-7 align-middle text-gray-400 transition-all hover:cursor-pointer  hover:bg-gray-200/50">
+      <div className="text-gray-800">{accountIcon}</div>
       <div className="flex w-full flex-col items-start justify-center gap-1 pl-1">
-        <Typography variant="h6" className="leading-none text-white">
+        <Typography
+          variant="h6"
+          className="font-bold leading-none tracking-wide text-black"
+        >
           {accountTitle}
         </Typography>
         <Typography
           variant="paragraph"
-          className="leading-1 truncate text-gray-400"
+          className="leading-1 truncate font-bold text-gray-600/100"
         >
           {accountDescription}
         </Typography>
       </div>
-      <div className="flex w-6 flex-col items-end gap-0">
+      <div className="">
         <Button
           onClick={copyPasswordBtn}
           size="sm"
           variant="filled"
-          className="rounded-full bg-[#2f3542] bg-transparent p-1 shadow-none hover:bg-transparent hover:shadow-none"
+          className="rounded-full bg-[#2f3542] bg-transparent p-0 shadow-none hover:bg-transparent hover:shadow-none"
         >
-          <Square2StackIcon className="h-6 w-6 text-gray-500 transition-all hover:scale-110 hover:text-cyan-300" />
+          <Square2StackIcon className="h-6 w-6 text-gray-400 transition-all hover:scale-110 hover:text-gray-900" />
         </Button>
       </div>
     </div>

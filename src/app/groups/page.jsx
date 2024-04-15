@@ -1,40 +1,37 @@
 "use client";
-import React from "react";
+import { React } from "react";
 import Link from "next/link";
-import { PlusIcon } from "@heroicons/react/24/outline";
 import { Button, Typography } from "@material-tailwind/react";
 
 export default function Groups() {
-  // const [copyNotification, setCopyNotification] = React.useState(true);
-
   return (
     <div className="flex h-screen flex-col p-0 text-white">
-      <div className="to-gray] flex w-full flex-col border-b border-[#1e272e] bg-gray-900 bg-gradient-to-b from-black pb-10 pt-[100px]">
-        {/* <div className='relative flex justify-center items-center'>
-          {copyNotification}
-        </div> */}
-        <div className="container mx-auto">
-          <Typography variant="h3" className="font-bold">
-            Groups
-          </Typography>
-          <Typography variant="h6" color="gray" className="mb-5">
-            Manage Group credentials
-          </Typography>
-          <div className="flex flex-wrap gap-2">
-            <div className="w-34 flex flex-auto place-items-center justify-end align-middle">
-              {" "}
-              <Link href="#">
-                <Button
-                  size="sm"
-                  color="white"
-                  variant="filled"
-                  className="flex items-center gap-2 rounded-lg align-middle normal-case transition-all"
-                >
-                  <PlusIcon className="h-4 w-4" />
-                  Add New...
-                </Button>
-              </Link>
-            </div>
+      <div className="flex w-full flex-col border-b border-gray-500/10 bg-white pb-5 pt-[100px]">
+        <div className="container flex flex-wrap items-center justify-center rounded-xl align-middle ">
+          <div className="flex-1 flex-col">
+            <Typography
+              variant="h2"
+              className="font-black tracking-tight text-black"
+            >
+              Teams
+            </Typography>
+            <Typography variant="h6" className=" text-gray-900/50">
+              Manage your Teams
+            </Typography>
+          </div>
+          <div className="flex place-items-center justify-center align-middle">
+            {" "}
+            <Link href="#">
+              <Button
+                size="sm"
+                color="black"
+                className="group flex items-center gap-2 rounded-lg align-middle normal-case shadow-none transition-all hover:bg-gray-800 hover:shadow-none"
+              >
+                <Typography variant="h6" className=" tracking-wide">
+                  Add New
+                </Typography>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

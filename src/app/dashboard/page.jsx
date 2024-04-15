@@ -2,7 +2,6 @@
 import { React, useState } from "react";
 import Link from "next/link";
 import {
-  PlusIcon,
   CheckCircleIcon,
   SparklesIcon,
   Square2StackIcon,
@@ -10,6 +9,7 @@ import {
   FingerPrintIcon,
   RectangleGroupIcon,
   PlayIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 
 import {
@@ -41,12 +41,12 @@ export default function Dashboard() {
     setCopyNotification(
       <div className="-translate-y-1/5 absolute left-1/2 top-1/3 -translate-x-1/2 transform">
         <Alert
-          className="flex items-center  justify-center gap-2 border-none bg-cyan-700/10"
-          icon={<CheckCircleIcon className="h-6 w-6 text-cyan-600" />}
+          className="flex items-center  justify-center gap-2 border-none bg-gray-100/40 "
+          icon={<CheckCircleIcon className="h-6 w-6 text-green-500" />}
         >
           <Typography
             variant="h6"
-            className="text-small tracking-wide text-cyan-500 "
+            className="text-small tracking-wide text-black "
           >
             Credentials successfully copied.
           </Typography>
@@ -63,74 +63,74 @@ export default function Dashboard() {
       id: 1,
       accountTitle: "Google",
       accountDescription: "micl@gmail.com",
-      accountIcon: (
-        <Google className="h-8 w-8 rounded-xl p-0  transition-all hover:text-cyan-300" />
-      ),
+      accountIcon: <Google className="text-3xl" />,
       copyPasswordBtn: CopyPasswordBtn,
     },
     {
       id: 2,
       accountTitle: "Instagram",
       accountDescription: "m_michael",
-      accountIcon: (
-        <Instagram className="h-8 w-8 rounded-xl p-0 transition-all hover:text-cyan-300" />
-      ),
+      accountIcon: <Instagram className="text-3xl" />,
       copyPasswordBtn: CopyPasswordBtn,
     },
     {
       id: 3,
       accountTitle: "GitHub",
       accountDescription: "michael.dev",
-      accountIcon: (
-        <Github className="h-8 w-8 rounded-xl p-0  transition-all hover:text-cyan-300" />
-      ),
+      accountIcon: <Github className="text-3xl" />,
       copyPasswordBtn: CopyPasswordBtn,
     },
     {
       id: 4,
       accountTitle: "Twitter",
       accountDescription: "m_michael",
-      accountIcon: (
-        <Twitter className="h-8 w-8 rounded-xl p-0 transition-all hover:text-cyan-300" />
-      ),
+      accountIcon: <Twitter className="text-3xl" />,
       copyPasswordBtn: CopyPasswordBtn,
     },
   ];
   return (
-    <div className="flex h-screen flex-col p-0 text-white">
-      <div className="to-gray flex w-full flex-col border-b border-[#1e272e]  bg-gray-900 bg-gradient-to-br from-black pt-[100px]">
+    <div className="flex h-screen flex-col p-0">
+      <div className="flex w-full flex-col border-b border-gray-500/10 bg-white pb-10 pt-[120px]">
         <div className="relative flex items-center justify-center">
           {copyNotification}
         </div>
-        <div className="container mx-auto">
-          <Typography variant="h3" className="font-bold">
-            Credentials
-          </Typography>
-          <Typography variant="h6" color="gray" className="mb-5">
-            Manage your credentials
-          </Typography>
-          <div className="flex flex-wrap gap-2">
-            <div className="w-34 flex flex-auto place-items-center justify-end align-middle">
-              {" "}
-              <Link href="#">
-                <Button
-                  onClick={toggleOpen}
-                  size="md"
-                  color="white"
-                  variant="filled"
-                  className="flex items-center gap-2 rounded-lg align-middle normal-case transition-all"
-                >
-                  <PlusIcon className="h-4 w-4" />
-                  <Typography variant="h6" className="text-sm tracking-wide">
-                    Add New...
-                  </Typography>
-                </Button>
-              </Link>
+        <div className="container flex flex-wrap items-center justify-center align-middle ">
+          <div className="align-start flex flex-1 flex-row items-center justify-center gap-4 ">
+            <ShieldCheckIcon className="h-11 w-11 rounded-xl bg-green-100/30 p-2 text-green-500 transition-all group-hover:text-cyan-300" />
+            <div className="flex-1 flex-col justify-start">
+              <Typography
+                variant="h4"
+                className="m-0 p-0 font-black leading-normal tracking-tight text-black"
+              >
+                Credentials
+              </Typography>
+              <Typography
+                variant="h6"
+                className="text-sm leading-normal text-gray-600"
+              >
+                Manage your personal Credentials
+              </Typography>
             </div>
           </div>
-
-          <Collapse open={open} className="w-full">
-            <Card className="my-4 flex w-full flex-col gap-4 bg-gray-50 py-4 transition-all">
+          <div className="flex place-items-center justify-center align-middle">
+            {" "}
+            <Link href="#">
+              <Button
+                onClick={toggleOpen}
+                size="sm"
+                color="black"
+                className="group flex items-center gap-2 rounded-lg align-middle normal-case shadow-none transition-all hover:bg-gray-800 hover:shadow-none"
+              >
+                <Typography variant="h6" className=" tracking-wide">
+                  Add New
+                </Typography>
+              </Button>
+            </Link>
+          </div>
+        </div>
+        <div className="container mx-auto">
+          <Collapse open={open} className="w-full ease-in-out">
+            <Card className="mt-8 flex w-full flex-col gap-4 bg-gray-200/30 py-4 shadow-none transition-all duration-300 ease-in-out">
               <CardBody>
                 <form>
                   <div className="flex w-full flex-row flex-wrap  justify-center gap-6 lg:px-60">
@@ -139,7 +139,7 @@ export default function Dashboard() {
                         label="Account title"
                         size="lg"
                         placeholder="name@mail.com"
-                        className="flex-grow border border-blue-500 text-gray-800"
+                        className="flex-grow border border-gray-900 text-gray-900 focus:border-blue-500 active:border-blue-500"
                         crossOrigin={undefined}
                       />
                       <Input
@@ -218,10 +218,10 @@ export default function Dashboard() {
                           }}
                           variant="filled"
                           color="gray"
-                          className="small group mb-0 flex w-full items-center justify-center gap-2 border-[1.5px] border-gray-700/20  bg-gray-900 text-gray-400 transition-all hover:border-gray-700/30 hover:text-gray-200"
+                          className="small group mb-0 flex w-full items-center justify-center gap-2 border-[1.5px] border-gray-700/20 bg-gray-900 text-white shadow-none transition-all hover:border-gray-700/30 hover:bg-gray-800 hover:text-gray-200 hover:shadow-sm"
                           placeholder=""
                         >
-                          <SparklesIcon className="h-5 w-5 text-gray-600 transition-all group-hover:text-cyan-300" />
+                          <SparklesIcon className="h-5 w-5 text-white transition-all group-hover:text-blue-300" />
                           <Typography
                             variant="h6"
                             placeholder="Enter text"
@@ -237,7 +237,7 @@ export default function Dashboard() {
                           }}
                           variant="filled"
                           color="white"
-                          className="my-0 w-full items-center justify-center border-[1.5px]  border-gray-700/20 text-gray-700 transition-all hover:border-gray-700/30 hover:text-gray-900"
+                          className="my-0 w-full items-center justify-center border-[1.5px] border-gray-900/10 text-gray-700 shadow-none transition-all hover:border-gray-700/30 hover:bg-gray-100 hover:text-gray-900 hover:shadow-sm"
                           placeholder=""
                         >
                           <Typography
@@ -257,7 +257,7 @@ export default function Dashboard() {
           </Collapse>
         </div>
       </div>
-      <div className="container mx-auto flex flex-wrap gap-2 py-5">
+      <div className="container mx-auto flex flex-wrap gap-2 pt-10">
         {credentials.map((credential) => (
           <CredentialSingleAccount key={credential.id} {...credential} />
         ))}

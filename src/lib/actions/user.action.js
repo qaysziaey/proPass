@@ -1,6 +1,6 @@
 "use server";
 
-import User from "../model/user.model";
+import User from "../modals/user.modal";
 import connectDB from "../../lib/mongo/connectDB";
 
 export async function createUser(user) {
@@ -10,5 +10,6 @@ export async function createUser(user) {
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     console.log(error);
+    return null;
   }
 }
