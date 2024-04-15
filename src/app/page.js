@@ -38,7 +38,6 @@ export default function Home() {
         </div>
         <ProPassSlogan />
       </div>
-      <div className="landing-bg absolute inset-0 z-[-1] h-full w-full items-center justify-center border text-center align-middle"></div>
     </div>
   );
 }
