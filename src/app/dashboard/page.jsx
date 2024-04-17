@@ -1,15 +1,12 @@
 "use client";
+
 import { React, useState } from "react";
 import Link from "next/link";
 import {
   CheckCircleIcon,
   SparklesIcon,
   Square2StackIcon,
-  CreditCardIcon,
-  FingerPrintIcon,
-  RectangleGroupIcon,
-  PlayIcon,
-  ShieldCheckIcon,
+  SquaresPlusIcon,
 } from "@heroicons/react/24/outline";
 
 import {
@@ -96,24 +93,17 @@ export default function Dashboard() {
         </div>
         <div className="container flex flex-wrap items-center justify-center align-middle ">
           <div className="align-start flex flex-1 flex-row items-center justify-center gap-4 ">
-            <ShieldCheckIcon className="h-11 w-11 rounded-xl bg-green-100/30 p-2 text-green-500 transition-all group-hover:text-cyan-300" />
+            <SquaresPlusIcon className="h-12 w-12 rounded-xl border-[1px] border-white bg-white/40 p-0 text-gray-900 shadow-lg shadow-cyan-300/40 ring-2 ring-purple-900/5 transition-all" />
             <div className="flex-1 flex-col justify-start">
-              <Typography
-                variant="h4"
-                className="m-0 p-0 font-black leading-normal tracking-tight text-black"
-              >
+              <h1 className="m-0 p-0 text-3xl font-semibold leading-normal tracking-tight text-black">
                 Credentials
-              </Typography>
-              <Typography
-                variant="h6"
-                className="text-sm leading-normal text-gray-600"
-              >
+              </h1>
+              <p className="mt-[-5px] text-sm leading-normal text-gray-600">
                 Manage your personal Credentials
-              </Typography>
+              </p>
             </div>
           </div>
           <div className="flex place-items-center justify-center align-middle">
-            {" "}
             <Link href="#">
               <Button
                 onClick={toggleOpen}
@@ -128,13 +118,13 @@ export default function Dashboard() {
             </Link>
           </div>
         </div>
-        <div className="container mx-auto">
-          <Collapse open={open} className="w-full ease-in-out">
-            <Card className="mt-8 flex w-full flex-col gap-4 bg-gray-200/30 py-4 shadow-none transition-all duration-300 ease-in-out">
-              <CardBody>
+        <div className="container mx-auto ">
+          <Collapse open={open} className="w-full p-0 ease-in-out">
+            <Card className="mt-8 flex w-full flex-col gap-4 bg-gray-200/30 p-0 shadow-none transition-all duration-300 ease-in-out">
+              <CardBody className="p-2">
                 <form>
-                  <div className="flex w-full flex-row flex-wrap  justify-center gap-6 lg:px-60">
-                    <div className="mb-1  flex flex-auto flex-col gap-6">
+                  <div className="flex w-full flex-row flex-wrap justify-center gap-2 p-0">
+                    <div className="mb-1 flex flex-auto flex-col gap-6">
                       <Input
                         label="Account title"
                         size="lg"
@@ -157,22 +147,18 @@ export default function Dashboard() {
                         className="h-40 border-2 border-gray-500 text-gray-800"
                       />
                     </div>
-                    <div className="mb-1 flex flex-grow flex-col gap-6">
+                    <div className="mb-1 flex flex-grow flex-col justify-between gap-6">
                       <Select label="Choose account logo">
                         <Option className="flex flex-row items-center gap-4 text-gray-600">
-                          <FingerPrintIcon className="m-0 h-7 w-7 rounded-lg bg-orange-600/10 p-1 text-orange-500 transition-all group-hover:text-cyan-300" />
                           <Typography variant="h6">Login</Typography>
                         </Option>
                         <Option className="flex flex-row items-center gap-4 text-gray-600">
-                          <PlayIcon className="h-7 w-7 rounded-lg  bg-red-300/10 p-1 text-red-600 transition-all group-hover:text-cyan-300" />
                           Streaming{" "}
                         </Option>
                         <Option className="flex flex-row items-center gap-4 text-gray-600">
-                          <CreditCardIcon className="h-7 w-7 rounded-lg bg-cyan-300/10 p-1 text-cyan-500 transition-all group-hover:text-cyan-300" />
                           <Typography variant="h6">Card</Typography>
                         </Option>
                         <Option className="flex flex-row items-center gap-4 text-gray-600">
-                          <RectangleGroupIcon className="h-7 w-7 rounded-lg bg-purple-300/10 p-1 text-purple-500 transition-all group-hover:text-cyan-300" />
                           <Typography variant="h6">Socials</Typography>
                         </Option>
                       </Select>

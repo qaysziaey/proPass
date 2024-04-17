@@ -12,11 +12,11 @@ import {
 } from "@heroicons/react/24/outline";
 export default function ProPassSlogan() {
   return (
-    <div className="md:rounded-0 container relative flex flex-row flex-wrap border-gray-900 bg-gray-900 p-0 shadow-2xl lg:rounded-xl">
+    <div className="md:rounded-0 container relative flex flex-row flex-wrap border-gray-900 bg-gray-900 p-0 shadow-2xl  lg:rounded-xl">
       <div className="flex-1 flex-col border-r-[0.5px] border-gray-800/30 text-gray-200">
         <div className="flex-1 border-b-[0.5px] border-gray-800/30 px-8 py-16"></div>
         <Link href="#">
-          <div className="group flex flex-1 flex-row items-center justify-between border-b-[0.5px] border-gray-800/30 px-12 py-6 text-left align-middle transition-all duration-300 ease-in-out hover:border-t-gray-800/60 hover:bg-gray-800/20">
+          <div className="group flex flex-1 flex-row items-center justify-between border-b-[0.5px] border-gray-800/30 px-12 py-6 text-left align-middle transition-all duration-300 ease-in-out hover:border-t-gray-800/60 hover:bg-gray-800/20 ">
             <Typography variant="h5" className="m-0 p-0 font-bold">
               Proactive Security
             </Typography>

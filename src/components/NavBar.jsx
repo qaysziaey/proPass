@@ -18,6 +18,14 @@ import {
 // MATERIAL TAILWIND
 import { Navbar, Collapse, IconButton } from "@material-tailwind/react";
 
+// ICONS
+import {
+  UserGroupIcon,
+  UsersIcon,
+  HomeIcon,
+  SquaresPlusIcon,
+} from "@heroicons/react/24/outline";
+
 // NAVBAR
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -41,21 +49,25 @@ export default function NavBar() {
       id: 1,
       name: "Home",
       href: "/",
+      icon: HomeIcon,
     },
     {
       id: 2,
       name: "Dashboard",
       href: "/dashboard",
+      icon: SquaresPlusIcon,
     },
     {
       id: 3,
-      name: "Users",
+      name: "Member",
       href: "/user/users",
+      icon: UsersIcon,
     },
     {
       id: 4,
-      name: "Groups",
+      name: "Team",
       href: "/groups",
+      icon: UserGroupIcon,
     },
     {
       id: 5,
@@ -68,7 +80,7 @@ export default function NavBar() {
     <Navbar
       shadow={false}
       fullWidth
-      className="fixed top-0 z-50 border-0 border-b border-gray-200/60 bg-white px-0"
+      className=" nav-bg fixed top-0 z-10 border-0 border-b border-gray-200/60 px-0"
     >
       <div className="container mx-auto flex items-center justify-between gap-4">
         <Link href="/">
@@ -84,22 +96,26 @@ export default function NavBar() {
           <ul className="flex hidden flex-1 items-center gap-2 pl-6 lg:flex">
             {navItems.map((item) => (
               <li
-                className="flex flex-row items-center gap-2 rounded-full px-3 py-[0.4rem] text-sm text-gray-600 duration-300 ease-in-out  hover:bg-gray-300/40 hover:text-gray-900"
+                className="relative flex flex-row items-center gap-2 rounded-full px-3 py-[0.4rem] text-sm text-gray-600 duration-300 ease-in-out  hover:bg-gray-300/40 hover:text-gray-900"
                 key={item.id}
               >
                 <Link
                   href={item.href}
-                  className="flex flex-row items-center gap-2"
+                  className="group flex flex-row items-center gap-2"
                 >
+                  {item.icon && (
+                    <item.icon className="h-5 w-5 rounded-md border-[0.5px] border-gray-900/10 bg-white text-gray-900 transition-all duration-300 ease-in-out" />
+                  )}
                   {item.name}
                 </Link>
               </li>
             ))}
           </ul>
         )}
+
         <div className="hidden items-center gap-2 text-gray-600 lg:flex">
           <SignedOut>
-            <SignInButton className="rounded-md bg-gray-900 px-4 py-2 text-white transition-all ease-in-out hover:bg-gray-800 hover:shadow-md" />
+            <SignInButton className="rounded-full  border-[1px] border-gray-900/5 px-4 py-1 text-gray-700 shadow-none transition-all hover:border-white hover:bg-white hover:text-gray-900 hover:shadow-md hover:ring-2 hover:ring-gray-800/5" />
           </SignedOut>
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
@@ -108,7 +124,7 @@ export default function NavBar() {
         <div className="flex items-center gap-2 lg:hidden ">
           <div className="flex items-center gap-2 ">
             <SignedOut>
-              <SignInButton />
+              <SignInButton className="rounded-full bg-gray-900 px-4 py-2 text-white transition-all ease-in-out hover:bg-gray-800 hover:shadow-md" />
             </SignedOut>
             <SignedIn>
               <UserButton afterSignOutUrl="/" />

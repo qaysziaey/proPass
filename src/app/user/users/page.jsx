@@ -1,43 +1,36 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+
 import { UsersIcon } from "@heroicons/react/24/outline";
-import { Button, Typography } from "@material-tailwind/react";
+
+// async function getData() {
+//   try {
+//     const res = await fetch("https://api.example.com/...", {
+//       cache: "force-cache",
+//     });
+//   } catch (err) {}
+// }
 
 export default function Users() {
   return (
     <div className="flex h-screen flex-col p-0 text-white">
-      <div className="flex w-full flex-col border-b border-gray-500/10 bg-white pb-5 pt-[100px]">
-        <div className="container flex flex-wrap items-center justify-center rounded-xl align-middle ">
-          <div className="flex-1 flex-col">
-            <Typography
-              variant="h2"
-              className="font-black tracking-tight text-black"
-            >
-              Users
-            </Typography>
-            <Typography variant="h6" className=" text-gray-900/50">
-              Manage your members
-            </Typography>
-          </div>
-          <div className="flex place-items-center justify-center align-middle">
-            {" "}
-            <Link href="#">
-              <Button
-                size="sm"
-                color="black"
-                className="group flex items-center gap-2 rounded-lg align-middle normal-case shadow-none transition-all hover:bg-gray-800 hover:shadow-none"
-              >
-                <Typography variant="h6" className=" tracking-wide">
-                  Add New
-                </Typography>
-
-                <UsersIcon className="h-5 w-5 transition-all group-hover:scale-110" />
-              </Button>
-            </Link>
+      <div className="flex w-full flex-col border-b border-gray-500/10 bg-white pb-5 pt-[120px]">
+        <div className="container flex flex-wrap items-center justify-center align-middle ">
+          <div className="align-start flex flex-1 flex-row items-center justify-center gap-4 ">
+            <UsersIcon className="h-12 w-12 rounded-xl border-[1px] border-white bg-white/40 p-0 text-gray-900 shadow-lg shadow-green-300/40 ring-2 ring-purple-900/5 transition-all" />
+            <div className="flex-1 flex-col justify-start">
+              <h1 className="m-0 p-0 text-3xl font-semibold leading-normal tracking-tight text-black">
+                Members
+              </h1>
+              <p className="mt-[-5px] text-sm leading-normal text-gray-600">
+                Manage members of a team
+              </p>
+            </div>
           </div>
         </div>
       </div>
+
+      <div className="container mx-auto flex flex-wrap gap-2 pt-10">hello</div>
     </div>
   );
 }

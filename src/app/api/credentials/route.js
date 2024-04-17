@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "../../../lib/mongo/connectDB";
 import { User } from "../../../lib/models/User";
 import { currentUser } from "@clerk/nextjs";
-import { createUserProfileIfNotExists } from "../../../lib/mongo/createUserProfile";
+// import { createUserProfileIfNotExists } from "../../../lib/mongo/createUserProfile";
 
 export async function GET() {
   try {
@@ -13,15 +13,6 @@ export async function GET() {
       return NextResponse.json({ msg: "user not logged in" }, { status: 401 });
     }
     await connectDB();
-    // TODO: make sure to use primary address only!
-    await createUserProfileIfNotExists({
-      clerkId: user.id,
-      email: user.emailAddresses[0].emailAddress,
-      username: user.username,
-      photo: user.imageUrl,
-      firstName: user.firstName,
-      lastName: user.lastName,
-    });
 
     const profile = await User.findOne({ clerkId: user.id });
     console.log(profile);

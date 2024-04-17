@@ -1,6 +1,13 @@
 import { connectDB } from "./connectDB";
 import { User } from "../models/User";
-export async function createUserProfileIfNotExists({ clerkId, email }) {
+export async function createUserProfileIfNotExists({
+  clerkId,
+  email,
+  imageUrl,
+  firstName,
+  lastName,
+  username,
+}) {
   await connectDB();
   // TODO User.updateOne() with upsert option
   const existingUser = await User.findOne({ clerkId });
@@ -10,6 +17,11 @@ export async function createUserProfileIfNotExists({ clerkId, email }) {
   const user = new User({
     clerkId: clerkId,
     email: email,
+    username: username,
+    photo: imageUrl,
+    firstName: firstName,
+    lastName: lastName,
+    credentials: [],
   });
   await user.save();
 }
