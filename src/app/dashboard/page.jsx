@@ -28,6 +28,7 @@ import { Github_Fab as Github } from "iconview/svgs/Github_Fab";
 import { Twitter_Fab as Twitter } from "iconview/svgs/Twitter_Fab";
 
 import CredentialSingleAccount from "../../components/CredentialSingleAccount";
+import NewCredentialForm from "../../components/NewCredentialForm";
 
 export default function Dashboard() {
   const [copyNotification, setCopyNotification] = useState(true);
@@ -170,12 +171,7 @@ export default function Dashboard() {
                         className="flex-grow border border-blue-500 text-gray-800"
                         crossOrigin={undefined}
                       />
-                      {/* <Typography
-                        variant='h6'
-                        placeholder='Enter text'
-                        className='-mb-5 tracking-wide text-gray-800 tracking-wide'>
-                        Generated Password
-                      </Typography> */}
+
                       <Button
                         onClick={(e) => {
                           e.preventDefault();
@@ -247,6 +243,9 @@ export default function Dashboard() {
         {credentials.map((credential) => (
           <CredentialSingleAccount key={credential.id} {...credential} />
         ))}
+      </div>
+      <div>
+        <NewCredentialForm />
       </div>
     </div>
   );

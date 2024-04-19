@@ -7,6 +7,7 @@ export async function createUserProfileIfNotExists({
   firstName,
   lastName,
   username,
+  credentials = [],
 }) {
   await connectDB();
   // TODO User.updateOne() with upsert option
@@ -21,7 +22,7 @@ export async function createUserProfileIfNotExists({
     photo: imageUrl,
     firstName: firstName,
     lastName: lastName,
-    credentials: [],
+    credentials: credentials,
   });
   await user.save();
 }

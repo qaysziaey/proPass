@@ -13,6 +13,12 @@ const CredentialSchema = new Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+  },
+  logo: {
+    type: String,
+  },
 });
 
 export const Credential =

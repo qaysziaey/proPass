@@ -18,11 +18,12 @@ export async function GET() {
       clerkId: user.id,
       email: user.emailAddresses[0].emailAddress,
       username: user.username,
-      photo: user.imageUrl,
+      imageUrl: user.imageUrl,
       firstName: user.firstName,
       lastName: user.lastName,
     });
 
+    console.log(user.imageUrl);
     const profile = await User.findOne({ clerkId: user.id });
     console.log(profile);
     return NextResponse.json({ userData: profile }, { status: 200 });
