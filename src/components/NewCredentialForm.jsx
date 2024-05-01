@@ -24,14 +24,8 @@ export default function Dashboard() {
   const [saveCredentialNotification, setSaveCredentialNotification] =
     useState(true);
 
-  // TODO: Add validation
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!accountTitle || !email || !description || !password) {
-      return alert("All fields are required");
-    }
-
     try {
       const response = await fetch("/api/newCred", {
         method: "POST",
@@ -63,7 +57,7 @@ export default function Dashboard() {
     setSaveCredentialNotification(
       <div className="my-4 flex">
         <Alert
-          className="flex items-center  justify-center gap-2 border-none bg-gray-900 "
+          className="flex items-center justify-center gap-2 border-none bg-gray-900 "
           icon={<CheckCircleIcon className="h-6 w-6 text-green-500" />}
         >
           <Typography
@@ -81,8 +75,8 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="container mx-auto ">
-      <Card className="mt-8 flex w-full flex-col gap-4 bg-gray-200/30 p-0 shadow-none transition-all duration-300 ease-in-out">
+    <div className="container m-0 p-0">
+      <Card className="mt-8 flex w-full flex-col gap-4 bg-gray-200/30 p-0  shadow-none transition-all duration-300 ease-in-out">
         <CardBody className="p-2">
           <div className="relative flex items-center justify-center">
             {saveCredentialNotification}
@@ -91,13 +85,15 @@ export default function Dashboard() {
             <div className="flex w-full flex-row flex-wrap justify-center gap-2 p-0">
               <div className="mb-1 flex flex-auto flex-col gap-6">
                 <Input
+                  required
                   onChange={(e) => setAccountTitle(e.target.value)}
                   label="Account title"
                   size="lg"
                   placeholder="name@mail.com"
-                  className="flex-grow border border-gray-900 text-gray-900 focus:border-blue-500 active:border-blue-500"
+                  className="flex-grow border-2 border-gray-900 text-gray-900 focus:border-gray-500 active:border-gray-900"
                 />
                 <Input
+                  required
                   onChange={(e) => setEmail(e.target.value)}
                   label="Email"
                   size="lg"
@@ -117,8 +113,8 @@ export default function Dashboard() {
                 <Select
                   value={selectedLogo}
                   label="Choose account logo"
-                  className="flex-grow border border-blue-500 py-4 text-gray-800"
-                  onChange={(e) => setSelectedLogo(e.target.value)}
+                  className="flex-grow border border-gray-500 py-4 text-gray-800"
+                  onSelect={(e) => setSelectedLogo(e.target.value)}
                 >
                   <Option
                     value="Login"
@@ -146,12 +142,13 @@ export default function Dashboard() {
                   </Option>
                 </Select>
                 <Input
+                  required
                   onChange={(e) => setPassword(e.target.value)}
                   label="Password"
                   type="password"
                   size="lg"
                   placeholder="password"
-                  className="flex-grow border border-blue-500 text-gray-800"
+                  className="flex-grow border-2 border-gray-500 text-gray-800 focus:border-gray-500 active:border-gray-900"
                 />
 
                 <Button

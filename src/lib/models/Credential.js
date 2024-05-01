@@ -16,9 +16,10 @@ const CredentialSchema = new Schema({
   description: {
     type: String,
   },
-  logo: {
+  accountIcon: {
     type: String,
   },
+  clerkId: { type: String, required: true },
 });
 
 export const Credential =

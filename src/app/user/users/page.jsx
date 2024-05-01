@@ -1,16 +1,32 @@
-import React from "react";
+"use client";
+import { React } from "react";
 import MemberTable from "../../../components/MemberTable";
-import { getUserByClerkId } from "@lib/service/user";
+import PageHeader from "../../../components/PageHeader";
+import { useUser } from "@clerk/nextjs";
 
-async function Members() {
-  const userData = await getUserByClerkId("user_2fBpwZJcPJnJoX1OzgLvaaqWw9D");
-  console.log(userData);
+export default function Members() {
+  const { isLoaded, isSignedIn, user } = useUser();
+
+  if (!isLoaded || !isSignedIn) {
+    return null;
+  }
 
   return (
     <div>
-      <MemberTable />
+      <PageHeader
+        headerTitle="Members"
+        headerSubtitle="Manage your Teams"
+        handleHeaderBtn={() => {}}
+        headerNotification={false}
+      />
+      {user && (
+        <MemberTable
+          key={user.id}
+          img={user.imageUrl}
+          name={user.username}
+          email={user.primaryEmailAddress.emailAddress}
+        />
+      )}
     </div>
   );
 }
-
-export default Members;

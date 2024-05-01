@@ -9,3 +9,10 @@ export async function getAllCredentials() {
   await connectDB();
   return await Credential.find();
 }
+
+// Delete Credential by id
+
+export async function deleteCredential(id) {
+  await connectDB();
+  return await Credential.deleteOne({ _id: id });
+}

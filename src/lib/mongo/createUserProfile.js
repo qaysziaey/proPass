@@ -11,6 +11,8 @@ export async function createUserProfileIfNotExists({
 }) {
   await connectDB();
   // TODO User.updateOne() with upsert option
+
+  // Check if the user already exists
   const existingUser = await User.findOne({ clerkId });
   if (existingUser) {
     return;

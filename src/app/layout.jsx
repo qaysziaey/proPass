@@ -2,7 +2,6 @@
 
 import "./globals.css";
 import React from "react";
-import PropTypes from "prop-types";
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "../components/NavBar";
 import "@fontsource/inter";
@@ -15,7 +14,7 @@ const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning={true}>
         <head>
           <title>{metadata.title}</title>
           <meta name="description" content={metadata.description} />
@@ -29,6 +28,3 @@ export default function RootLayout({ children }) {
     </ClerkProvider>
   );
 }
-RootLayout.propTypes = {
-  children: PropTypes.node.isRequired, // Ensure that children is a required node
-};

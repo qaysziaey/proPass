@@ -16,29 +16,14 @@ import {
 
 const TABLE_HEAD = ["Member", "Role", "Team", ""];
 
-const TABLE_ROWS = [
-  {
-    img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg",
-    name: "John Michael",
-    email: "john@creative-tim.com",
-    job: "Manager",
-    org: "Organization",
-    online: true,
-  },
-  {
-    img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg",
-    name: "Alexa Liras",
-    email: "alexa@creative-tim.com",
-    job: "Programator",
-    org: "Developer",
-    online: false,
-  },
-];
+function MemberTableEditBtn() {
+  return console.log("edit");
+}
 
-export default function MemberTable() {
+export default function MemberTable({ img, name, email }) {
   return (
-    <div className="container flex flex-col  pt-[120px] text-white">
-      <Card className="h-full w-full rounded-none rounded-b-xl border-[1px] border-gray-200  p-0 shadow-none">
+    <div className="container flex flex-col pt-4 text-white">
+      <Card className="h-full w-full   border-[1px] border-gray-200  p-0 shadow-none">
         <CardBody className="p-0 py-0">
           <table className="mt-0 w-full min-w-max table-auto text-left">
             <thead>
@@ -60,76 +45,64 @@ export default function MemberTable() {
               </tr>
             </thead>
             <tbody>
-              {TABLE_ROWS.map(
-                ({ img, name, email, job, org, online }, index) => {
-                  const isLast = index === TABLE_ROWS.length - 1;
-                  const classes = isLast
-                    ? "p-4"
-                    : "p-4 border-b border-blue-gray-50";
-
-                  return (
-                    <tr key={name}>
-                      <td className={classes}>
-                        <div className="flex items-center gap-3">
-                          <Avatar src={img} alt={name} size="sm" />
-                          <div className="flex flex-col">
-                            <Typography
-                              variant="h6"
-                              color="blue-gray"
-                              className="text-sm font-bold"
-                            >
-                              {name}
-                            </Typography>
-                            <Typography
-                              variant="h6"
-                              color="blue-gray"
-                              className="text-sm opacity-50"
-                            >
-                              {email}
-                            </Typography>
-                          </div>
-                        </div>
-                      </td>
-                      <td className={classes}>
-                        <div className="flex flex-col">
-                          <Typography
-                            variant="h6"
-                            color="blue-gray"
-                            className="text-sm"
-                          >
-                            {job}
-                          </Typography>
-                          <Typography
-                            variant="h6"
-                            color="blue-gray"
-                            className="text-sm opacity-50"
-                          >
-                            {org}
-                          </Typography>
-                        </div>
-                      </td>
-                      <td className={classes}>
-                        <div className="w-max">
-                          <Chip
-                            variant="ghost"
-                            size="sm"
-                            value={online ? "online" : "offline"}
-                            color={online ? "green" : "blue-gray"}
-                          />
-                        </div>
-                      </td>
-
-                      <td className={classes}>
-                        <Tooltip content="Edit User">
-                          <IconButton variant="text">
-                            <PencilIcon className="h-4 w-4" />
-                          </IconButton>
-                        </Tooltip>
-                      </td>
-                    </tr>
-                  );
-                },
-              )}
+              <tr key={name}>
+                <td className="border-b border-gray-200/60 p-4">
+                  <div className="flex items-center gap-3">
+                    <Avatar src={img} alt={name} size="sm" className="border" />
+                    <div className="flex flex-col">
+                      <Typography
+                        variant="h6"
+                        color="blue-gray"
+                        className="text-sm font-bold"
+                      >
+                        {name}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        color="blue-gray"
+                        className="text-sm opacity-50"
+                      >
+                        {email}
+                      </Typography>
+                    </div>
+                  </div>
+                </td>
+                <td className="border-b border-gray-200/60 p-4">
+                  <div className="flex flex-col">
+                    <Typography
+                      variant="h6"
+                      color="blue-gray"
+                      className="text-sm"
+                    >
+                      Developer
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      color="blue-gray"
+                      className="text-sm opacity-50"
+                    >
+                      UI Designer
+                    </Typography>
+                  </div>
+                </td>
+                <td>
+                  <div className="w-max">
+                    <Chip
+                      variant="ghost"
+                      size="sm"
+                      value="Online"
+                      color="cyan"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <Tooltip content="Edit User">
+                    <IconButton variant="text" onClick={MemberTableEditBtn}>
+                      <PencilIcon className="h-4 w-4" />
+                    </IconButton>
+                  </Tooltip>
+                </td>
+              </tr>
             </tbody>
           </table>
         </CardBody>
@@ -138,10 +111,18 @@ export default function MemberTable() {
             Page 1 of 10
           </Typography>
           <div className="flex gap-2">
-            <Button variant="filled" size="md" className="normal-case">
-              Previous
+            <Button
+              variant="filled"
+              size="sm"
+              className="rounded-full normal-case"
+            >
+              Back
             </Button>
-            <Button variant="filled" size="md" className=" normal-case">
+            <Button
+              variant="filled"
+              size="sm"
+              className="rounded-full normal-case"
+            >
               Next
             </Button>
           </div>

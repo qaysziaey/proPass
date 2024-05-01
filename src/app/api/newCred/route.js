@@ -1,26 +1,33 @@
+import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "../../../lib/mongo/connectDB";
 import { Credential } from "../../../lib/models/Credential";
-import bcrypt from "bcrypt";
+import CryptoJS from "crypto-js";
 
 import { NextResponse } from "next/server";
 export async function POST(request) {
   try {
-    const { accountTitle, email, password, description, logo } =
+    const { userId: clerkId } = auth();
+    const { accountTitle, email, password, description, accountIcon } =
       await request.json();
 
-    // Hashing password with
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY;
+
+    // Encrypting password
+    const encryptedPassword = CryptoJS.AES.encrypt(
+      password,
+      ENCRYPTION_KEY,
+    ).toString();
 
     await connectDB();
 
     await Credential.create({
+      clerkId,
       accountTitle,
       email,
-      password: hashedPassword,
+      password: encryptedPassword,
       description,
-      logo,
+      accountIcon,
     });
-    console.log("Description", description);
 
     return NextResponse.json(
       {
@@ -29,6 +36,7 @@ export async function POST(request) {
       { status: 200 },
     );
   } catch (err) {
+    console.log(err);
     return NextResponse.json(
       { msg: "Error while new creating credentials" },
       { status: 500 },
